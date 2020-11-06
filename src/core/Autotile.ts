@@ -17,9 +17,16 @@
 *   autotiles outside
 *   @param {Object} [json=undefined] Json object describing the autotile
 */
-class Autotile extends Land
+import {Land} from ".";
+import {RPM} from "./rpm";
+import {Enum} from ".";
+import PictureKind = Enum.PictureKind;
+
+export class Autotile extends Land
 {
-    constructor(json)
+    autotileID: number;
+    tileID: number;
+    constructor(json?)
     {
         super();
         if (json)

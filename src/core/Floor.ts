@@ -14,9 +14,13 @@
 *   @extends Land
 *   @param {Object} [json=undefined] Json object describing the floor
 */
-class Floor extends Land
+
+import {Land} from ".";
+import {RPM} from "./rpm";
+
+export class Floor extends Land
 {
-    constructor(json)
+    constructor(json?)
     {
         super();
         

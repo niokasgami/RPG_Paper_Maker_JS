@@ -11,7 +11,7 @@
 
 
 import THREE from "three";
-import {Mountain} from ".";
+import {Mountain,TextureSeveral} from ".";
 
 /**
  * The wrapper class for handle mountains sharing the same texture.

@@ -23,7 +23,10 @@
 *   @property {THREE.Mesh} mesh The autotiles mesh
 *   @property {number} index The faces index (count)
 */
-class Autotiles
+import THREE from "three";
+import {TextureSeveral} from ".";
+
+export class Autotiles
 {
     static COUNT_LIST = 5;
     static LIST_A = ["A1", "A2", "A3", "A4", "A5"];
@@ -52,6 +55,13 @@ class Autotiles
         "C4": 22,
         "D2": 23,
     };
+
+    texture: TextureSeveral;
+    width: number;
+    height: number;
+    geometry: THREE.Geometry;
+    mesh: THREE.Mesh;
+    index: number;
 
     constructor(texture)
     {

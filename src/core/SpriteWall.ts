@@ -16,9 +16,19 @@
 *   @property {SpriteWallKind} kind The kind of wall (border or not)
 *   @param {Object} [json=undefined] Json object describing the wall
 */
-class SpriteWall extends MapElement
+import {MapElement, Sprite} from ".";
+import THREE from "three";
+import {Enum} from ".";
+import SpriteWallKind = Enum.SpriteWallKind;
+import PictureKind = Enum.PictureKind;
+import {RPM} from "./rpm";
+
+export class SpriteWall extends MapElement
 {
-    constructor(json)
+    id: number;
+    kind: any;
+
+    constructor(json?)
     {
         super();
         
@@ -74,13 +84,13 @@ class SpriteWall extends MapElement
         center.add(localPosition);
 
         // Getting UV coordinates
-        let textureRect = [this.kind, 0, 1, Math.floor(height / RPM.SQUARE_SIZE)];
-        let x = (textureRect[0] * RPM.SQUARE_SIZE) / width;
+        let textureRect: number[] = [this.kind, 0, 1, Math.floor(height / RPM.SQUARE_SIZE)];
+        let x: number = (textureRect[0] * RPM.SQUARE_SIZE) / width;
         let y = textureRect[1];
         let w = RPM.SQUARE_SIZE / width;
         let h = 1.0;
-        let coefX = RPM.COEF_TEX / width;
-        let coefY = RPM.COEF_TEX / height;
+        let coefX: number = RPM.COEF_TEX / width;
+        let coefY: number = RPM.COEF_TEX / height;
         x += coefX;
         y += coefY;
         w -= (coefX * 2);
@@ -99,8 +109,8 @@ class SpriteWall extends MapElement
         ];
 
         // Collision
-        let objCollision = new Array;
-        let collisions = new Array;
+        let objCollision = [];
+        let collisions = [];
         let wall = RPM.datasGame.specialElements.walls[this.id];
         if (wall)
         {

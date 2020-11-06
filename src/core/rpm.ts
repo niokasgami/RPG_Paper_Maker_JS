@@ -1086,6 +1086,7 @@ export class RPM {
         }
     }
 
+    static datasGame: any;
     // -------------------------------------------------------
     /** Initialize the game stack and datas
      */

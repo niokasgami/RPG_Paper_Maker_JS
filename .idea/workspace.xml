@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/land.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/mountain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/mountains.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Mountains.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/sprite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Coordinate3D.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Coordinate3D.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/autotile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Autotile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/autotiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Autotiles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/enums.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/floor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Floor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/sprite-wall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/SpriteWall.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/texture-several.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/TextureSeveral.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Mountains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Mountains.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/map-element.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/rpm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/rpm.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rpm/Mathf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rpm/Mathf.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +36,20 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="ts.external.directory.path" value="C:\Users\nioPC\AppData\Roaming\npm\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\core" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\system" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -72,22 +70,43 @@
       <workItem from="1604610974706" duration="333000" />
       <workItem from="1604642775398" duration="159000" />
       <workItem from="1604682117385" duration="10747000" />
-      <workItem from="1604694637534" duration="1351000" />
+      <workItem from="1604694637534" duration="4827000" />
+      <workItem from="1604701841931" duration="3165000" />
     </task>
+    <task id="LOCAL-00001" summary="Added more classes">
+      <created>1604696033635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604696033635</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added more classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more classes" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="461" y="164" width="1344" height="710" key="SettingsEditor" timestamp="1604547774037">
+    <state x="562" y="2" key="CommitChangelistDialog2" timestamp="1604696031975">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604547774037" />
-    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1604685872269">
+    <state x="562" y="2" key="CommitChangelistDialog2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604696031975" />
+    <state x="461" y="164" width="1344" height="710" key="SettingsEditor" timestamp="1604696317456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604685872269" />
+    <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604696317456" />
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1604696037230">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604696037230" />
+    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1604701364203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604701364203" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1604688466904">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
