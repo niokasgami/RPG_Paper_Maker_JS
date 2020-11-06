@@ -90,7 +90,7 @@ export class RPM {
 
     static SMALL_FONT_SIZE = 8;
     static MEDIUM_FONT_SIZE = 10;
-    static BASIC_SQUARE_SIZE = 32;
+    static SQUARE_SIZE = 32;
     static BATLLER_STEPS = 9;
     static SMALL_SLOT_HEIGHT = 30;
     static MEDIUM_SLOT_WIDTH = 200;

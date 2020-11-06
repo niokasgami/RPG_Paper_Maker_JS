@@ -9,12 +9,23 @@
         http://rpg-paper-maker.com/index.php/eula.
 */
 
-/** @class
-*   Mountains with the same textures
-*/
-class Mountains
+
+import THREE from "three";
+import {Mountain} from ".";
+
+/**
+ * The wrapper class for handle mountains sharing the same texture.
+ */
+export class Mountains
 {
-    constructor(texture)
+    texture: TextureSeveral;
+    width: number;
+    height: number;
+    geometry: THREE.Geometry;
+    count: number;
+    mesh: THREE.Mesh;
+
+    constructor(texture: TextureSeveral)
     {
         this.texture = texture;
         this.width = texture.texture.map.image.width;
@@ -30,7 +41,7 @@ class Mountains
     *   @param {number[]} position The json position
     *   @param {Mountain} mountain The moutain to update
     */
-    updateGeometry(position, mountain)
+    updateGeometry(position: number[], mountain: Mountain)
     {
         let res = mountain.updateGeometry(this.geometry, this.texture, position,
             this.count);

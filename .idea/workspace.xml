@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="" />
+    <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/land.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/mountain.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/mountains.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Mountains.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/sprite.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Coordinate3D.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Coordinate3D.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/map-element.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/rpm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/rpm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rpm/Mathf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/rpm/Mathf.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,13 +26,18 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1jr0qwdBQXCemR6lOFr5MUGm4a9" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -54,6 +71,8 @@
       <workItem from="1604593452641" duration="2677000" />
       <workItem from="1604610974706" duration="333000" />
       <workItem from="1604642775398" duration="159000" />
+      <workItem from="1604682117385" duration="10747000" />
+      <workItem from="1604694637534" duration="1351000" />
     </task>
     <servers />
   </component>
@@ -65,5 +84,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604547774037" />
+    <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1604685872269">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604685872269" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1604688466904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604688466904" />
   </component>
 </project>
