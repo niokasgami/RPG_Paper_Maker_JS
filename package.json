@@ -1,0 +1,16 @@
+{
+  "name": "rpm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^10.1.5",
+    "three": "^0.122.0",
+    "three.js": "^0.77.1"
+  }
+}
