@@ -16,3 +16,6 @@ export * from "./Mountains";
 export * from "./TextureSeveral";
 export * from "./Floor";
 export * from "./SpriteWall";
+export * from "./Autotile";
+export * from "./Autotiles";
+export * from "./Bitmap";

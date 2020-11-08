@@ -21,8 +21,18 @@
 *   @param {number} [w=0] w coord of the bitmap
 *   @param {number} [h=0] h coord of the bitmap
 */
-class Bitmap
+import {RPM} from "./rpm";
+export class Bitmap
 {
+    oX: number;
+    oY: number;
+    oW: number;
+    oH: number;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+
     constructor(x = 0, y = 0, w = 0, h = 0)
     {
         this.setX(x);
@@ -50,7 +60,7 @@ class Bitmap
     *   @param {boolean} [min=false] If checked, transform screen value with min 
     *   x y
     */
-    setY(y, min)
+    setY(y, min= false)
     {
         this.oY = y;
         this.y = min ? RPM.getScreenMinXY(y) : RPM.getScreenY(y);
@@ -63,7 +73,7 @@ class Bitmap
     *   @param {boolean} [min=false] If checked, transform screen value with min 
     *   x y
     */
-    setW(w, min)
+    setW(w, min= false)
     {
         this.oW = w;
         this.w = min ? RPM.getScreenMinXY(w) : RPM.getScreenX(w);
@@ -76,7 +86,7 @@ class Bitmap
     *   @param {boolean} [min=false] If checked, transform screen value with min 
     *   x y
     */
-    setH(h, min)
+    setH(h, min= false)
     {
         this.oH = h;
         this.h = min ? RPM.getScreenMinXY(h) : RPM.getScreenY(h);

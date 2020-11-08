@@ -28,8 +28,26 @@
 *   @param {number} [w=0] Coords of the bitmap
 *   @param {number} [h=0] Coords of the bitmap
 */
-class Picture2D extends Bitmap
+import {Bitmap} from ".";
+import {RPM} from "./rpm";
+import {Platform} from ".";
+
+export class Picture2D extends Bitmap
 {
+
+    zoom: number;
+    opacity: number;
+    angle: number;
+    cover: boolean;
+    stretch: boolean;
+    path: string;
+    loaded: boolean;
+    empty: boolean;
+    image: any;
+    centered: boolean;
+    reverse: boolean;
+
+
     constructor(path = "", x = 0, y = 0, w = 0, h = 0)
     {
         super(x, y, w, h);
@@ -91,7 +109,7 @@ class Picture2D extends Bitmap
     static async loadImage(path)
     {
         return (await new Promise((resolve, reject) => {
-            let image = new Image()
+            let image: any = new Image()
             image.onload = () => {
                 image.empty = false;
                 resolve(image);

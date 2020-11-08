@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/autotile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Autotile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/autotiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Autotiles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/enums.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/floor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Floor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/sprite-wall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/SpriteWall.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/texture-several.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/TextureSeveral.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Mountains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Mountains.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/bitmap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Bitmap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/picture2d.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Picture2D.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/rpm.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/rpm.ts" afterDir="false" />
     </list>
@@ -44,12 +39,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\core" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\system" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -71,7 +66,11 @@
       <workItem from="1604642775398" duration="159000" />
       <workItem from="1604682117385" duration="10747000" />
       <workItem from="1604694637534" duration="4827000" />
-      <workItem from="1604701841931" duration="3165000" />
+      <workItem from="1604701841931" duration="7035000" />
+      <workItem from="1604722101587" duration="670000" />
+      <workItem from="1604769037822" duration="3138000" />
+      <workItem from="1604807146567" duration="891000" />
+      <workItem from="1604865201183" duration="509000" />
     </task>
     <task id="LOCAL-00001" summary="Added more classes">
       <created>1604696033635</created>
