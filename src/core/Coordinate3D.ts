@@ -1,5 +1,7 @@
 /**
  * The data class who hold 3D coordinates.
+ * @author Nio Kasgami
+ * @TODO : make sure to implements freeze
  */
 export class Coordinate3D {
 
