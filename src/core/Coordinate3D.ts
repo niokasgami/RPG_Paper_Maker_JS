@@ -1,5 +1,6 @@
 /**
  * The data class who hold 3D coordinates.
+ * @author Nio Kasgami
  */
 export class Coordinate3D {
 
