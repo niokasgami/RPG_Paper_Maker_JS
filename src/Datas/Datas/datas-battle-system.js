@@ -10,48 +10,45 @@
 */
 
 /** @class
-*   All the battle system datas
-*   @property {SystemElement[]} elements List of all the elements by ID
-*   @property {SystemElement[]} elementsOrder List of all the elements by index
-*   @property {SystemStatistic[]} statistics List of all the statistics by ID
-*   @property {SystemStatistic[]} statistics List of all the statistics by index
-*   @property {SystemStatistic[]} statisticsElements List of all the statistics 
-*   elements
-*   @property {SystemStatistic[]} statisticsElementsPercent List of all the 
-*   statistics elements percents
-*   @property {string[]} equipments List of all the equipments name by ID
-*   @property {string[]} equipmentsOrder List of all the equipments name by 
-*   index
-*   @property {number} maxEquipmentID Max equipment ID in the list
-*   @property {SystemWeaponArmorKind[]} weaponsKind List of all the weapons
-*   kind by ID
-*   @property {SystemWeaponArmorKind[]} armorsKind List of all the armors kind 
-*   by ID
-*   @property {number[]} battleCommands List of all the battle commands (skill 
-*   ID) by ID
-*   @property {number[]} battleCommandsOrder List of all the battle commands (
-*   skill ID) by index
-*   @property {BattleMap[]} battleMaps List of all the battle maps by ID
-*   @property {number} idLevelStatistic Id of the level statistic
-*   @property {number} idExpStatistic Id of the experience statistic
-*   @property {SystemValue} formulaIsDead The formula is dead
-*   @property {SystemValue} formulaCrit The formula for critical hit
-*   @property {SystemPlaySong} battleMusic The battle music
-*   @property {SystemPlaySong} battleLevelUp The battle level up music
-*   @property {SystemPlaySong} battleVictory The battle victory music
-*/
-class DatasBattleSystem
-{
-    constructor()
-    {
+ *   All the battle system datas
+ *   @property {SystemElement[]} elements List of all the elements by ID
+ *   @property {SystemElement[]} elementsOrder List of all the elements by index
+ *   @property {SystemStatistic[]} statistics List of all the statistics by ID
+ *   @property {SystemStatistic[]} statistics List of all the statistics by index
+ *   @property {SystemStatistic[]} statisticsElements List of all the statistics
+ *   elements
+ *   @property {SystemStatistic[]} statisticsElementsPercent List of all the
+ *   statistics elements percents
+ *   @property {string[]} equipments List of all the equipments name by ID
+ *   @property {string[]} equipmentsOrder List of all the equipments name by
+ *   index
+ *   @property {number} maxEquipmentID Max equipment ID in the list
+ *   @property {SystemWeaponArmorKind[]} weaponsKind List of all the weapons
+ *   kind by ID
+ *   @property {SystemWeaponArmorKind[]} armorsKind List of all the armors kind
+ *   by ID
+ *   @property {number[]} battleCommands List of all the battle commands (skill
+ *   ID) by ID
+ *   @property {number[]} battleCommandsOrder List of all the battle commands (
+ *   skill ID) by index
+ *   @property {BattleMap[]} battleMaps List of all the battle maps by ID
+ *   @property {number} idLevelStatistic Id of the level statistic
+ *   @property {number} idExpStatistic Id of the experience statistic
+ *   @property {SystemValue} formulaIsDead The formula is dead
+ *   @property {SystemValue} formulaCrit The formula for critical hit
+ *   @property {SystemPlaySong} battleMusic The battle music
+ *   @property {SystemPlaySong} battleLevelUp The battle level up music
+ *   @property {SystemPlaySong} battleVictory The battle victory music
+ */
+class DatasBattleSystem {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to battle system.
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = await RPM.parseFileJSON(RPM.FILE_BATTLE_SYSTEM);
 
         // Elements
@@ -70,8 +67,7 @@ class DatasBattleSystem
         this.statisticsElements = [];
         this.statisticsElementsPercent = [];
         let id, name, index = this.statisticsOrder.length;
-        for (let i = 0, l = this.elementsOrder.length; i < l; i++)
-        {
+        for (let i = 0, l = this.elementsOrder.length; i < l; i++) {
             id = this.elementsOrder[i];
             name = this.elements[id].name;
             this.statistics[maxID + (i * 2) + 1] = SystemStatistic
@@ -87,33 +83,31 @@ class DatasBattleSystem
         // Equipments
         this.equipments = [];
         this.equipmentsOrder = [];
-        this.maxEquipmentID = RPM.readJSONSystemListByIDIndex(json.equipments, 
-            this.equipments, this.equipmentsOrder, (jsonEquipment) =>
-            {
+        this.maxEquipmentID = RPM.readJSONSystemListByIDIndex(json.equipments,
+            this.equipments, this.equipmentsOrder, (jsonEquipment) => {
                 return jsonEquipment.names[1];
             }, false
         );
 
         // Weapons kind
-        this.weaponsKind = RPM.readJSONSystemList(json.weaponsKind, 
+        this.weaponsKind = RPM.readJSONSystemList(json.weaponsKind,
             SystemWeaponArmorKind);
 
         // Armors kind
-        this.armorsKind = RPM.readJSONSystemList(json.armorsKind, 
+        this.armorsKind = RPM.readJSONSystemList(json.armorsKind,
             SystemWeaponArmorKind);
 
         // Battle commands
         this.battleCommands = [];
         this.battleCommandsOrder = [];
         RPM.readJSONSystemListByIDIndex(json.battleCommands, this.battleCommands
-            , this.battleCommandsOrder, (jsonBattleCommand) =>
-            {
+            , this.battleCommandsOrder, (jsonBattleCommand) => {
                 return jsonBattleCommand.s;
             }, false
         );
 
         // Battle maps
-        this.battleMaps = RPM.readJSONSystemList(json.battleMaps, 
+        this.battleMaps = RPM.readJSONSystemList(json.battleMaps,
             BattleMap);
 
         // Ids of specific statistics
@@ -133,20 +127,18 @@ class DatasBattleSystem
     // -------------------------------------------------------
 
     /** Get the statistic corresponding to the level
-    *   @returns {SystemStatistic}
-    */
-    getLevelStatistic()
-    {
+     *   @returns {SystemStatistic}
+     */
+    getLevelStatistic() {
         return this.statistics[this.idLevelStatistic];
     }
 
     // -------------------------------------------------------
 
     /** Get the statistic corresponding to the experience
-    *   @returns {SystemStatistic}
-    */
-    getExpStatistic()
-    {
+     *   @returns {SystemStatistic}
+     */
+    getExpStatistic() {
         let stat = this.statistics[this.idExpStatistic];
         return (RPM.isUndefined(stat) || stat.isRes) ? null : stat;
     }

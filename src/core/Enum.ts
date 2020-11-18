@@ -161,7 +161,7 @@ namespace Enum {
      *   @enum {string}
      *   @readonly
      */
-   export let AlignVertical = {
+    export let AlignVertical = {
         Bot: 0,
         Top: 1,
         Center: 2
@@ -173,7 +173,7 @@ namespace Enum {
      *   @enum {string}
      *   @readonly
      */
-   export let Orientation = {
+    export let Orientation = {
         South: 0,
         West: 1,
         North: 2,
@@ -366,7 +366,7 @@ namespace Enum {
      *   @enum {number}
      *   @readonly
      */
-   export let CharacteristicKind = {
+    export let CharacteristicKind = {
         IncreaseDecrease: 0,
         Script: 1,
         AllowForbidEquip: 2,
@@ -380,7 +380,7 @@ namespace Enum {
      *   @enum {number}
      *   @readonly
      */
-   export let IncreaseDecreaseKind = {
+    export let IncreaseDecreaseKind = {
         StatValue: 0,
         ElementRes: 1,
         StatusRes: 2,
@@ -396,7 +396,7 @@ namespace Enum {
      *   @enum {number}
      *   @readonly
      */
-   export let TargetKind = {
+    export let TargetKind = {
         None: 0,
         User: 1,
         Enemy: 2,

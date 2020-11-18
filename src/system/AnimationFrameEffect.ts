@@ -32,7 +32,7 @@ export class AnimationFrameEffect extends BaseSystem {
         super(json);
     }
 
-    public assignData() {
+    public setup() {
         this.isSE = true;
         this.se = null;
         this.condition = AnimationEffectConditionKind.None;

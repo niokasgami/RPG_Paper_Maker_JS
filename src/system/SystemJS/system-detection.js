@@ -10,53 +10,45 @@
 */
 
 /** @class
-*   A detection of the game
-*   @property {number[][]} boxes List of boxes for detection
-*   @param {Object} [json=undefined] Json object describing the detection
-*/
-class SystemDetection
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   A detection of the game
+ *   @property {number[][]} boxes List of boxes for detection
+ *   @param {Object} [json=undefined] Json object describing the detection
+ */
+class SystemDetection {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the detection
-    *   @param {Object} json Json object describing the detection
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the detection
+     */
+    read(json) {
         let jsonList = RPM.defaultValue(json.b, []);
         let l = jsonList.length;
         this.boxes = new Array(l);
         let jsonElement;
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             jsonElement = jsonList[i];
-            this.boxes[i] = [jsonElement.k, RPM.defaultValue(jsonElement.v.bhs, 
+            this.boxes[i] = [jsonElement.k, RPM.defaultValue(jsonElement.v.bhs,
                 1), RPM.defaultValue(jsonElement.v.bhp, 0)];
         }
     }
 
     // -------------------------------------------------------
     /** Check the collision between sender and object
-    *   @param {MapObject} sender The object that sent test collision
-    *   @param {MapObject} object The object to test the collision
-    *   @returns {boolean}
-    */
-    checkCollision(sender, object)
-    {
+     *   @param {MapObject} sender The object that sent test collision
+     *   @param {MapObject} object The object to test the collision
+     *   @returns {boolean}
+     */
+    checkCollision(sender, object) {
         let boundingBoxes = this.getBoundingBoxes(sender);
-        for (let i = 0, l = boundingBoxes.length; i < l; i++)
-        {
-            MapPortion.applyBoxSpriteTransforms(RPM.BB_BOX_DETECTION, 
+        for (let i = 0, l = boundingBoxes.length; i < l; i++) {
+            MapPortion.applyBoxSpriteTransforms(RPM.BB_BOX_DETECTION,
                 boundingBoxes[i]);
-            if (object.checkCollisionDetection())
-            {
+            if (object.checkCollisionDetection()) {
                 return true;
             }
         }
@@ -65,40 +57,37 @@ class SystemDetection
 
     // -------------------------------------------------------
     /** Get the sender bounding box
-    *   @param {MapObject} sender The object that sent test collision
-    *   @returns {number[][]}
-    */
-    getBoundingBoxes(sender)
-    {
+     *   @param {MapObject} sender The object that sent test collision
+     *   @returns {number[][]}
+     */
+    getBoundingBoxes(sender) {
         let orientation = sender.orientationEye;
         let localPosition = sender.position;
         let l = this.boxes.length;
         let list = new Array(l);
         let box, p, x, z;
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             box = this.boxes[i];
             p = box[0];
 
             // Update position according to sender orientation
-            switch (orientation)
-            {
-            case Orientation.South:
-                x = p[0] * RPM.SQUARE_SIZE;
-                z = p[3]* RPM.SQUARE_SIZE;
-                break;
-            case Orientation.West:
-                x = -p[3] * RPM.SQUARE_SIZE;
-                z = p[0] * RPM.SQUARE_SIZE;
-                break;
-            case Orientation.North:
-                x = -p[0] * RPM.SQUARE_SIZE;
-                z = -p[3] * RPM.SQUARE_SIZE;
-                break;
-            case Orientation.East:
-                x = p[3] * RPM.SQUARE_SIZE;
-                z = -p[0] * RPM.SQUARE_SIZE;
-                break;
+            switch (orientation) {
+                case Orientation.South:
+                    x = p[0] * RPM.SQUARE_SIZE;
+                    z = p[3] * RPM.SQUARE_SIZE;
+                    break;
+                case Orientation.West:
+                    x = -p[3] * RPM.SQUARE_SIZE;
+                    z = p[0] * RPM.SQUARE_SIZE;
+                    break;
+                case Orientation.North:
+                    x = -p[0] * RPM.SQUARE_SIZE;
+                    z = -p[3] * RPM.SQUARE_SIZE;
+                    break;
+                case Orientation.East:
+                    x = p[3] * RPM.SQUARE_SIZE;
+                    z = -p[0] * RPM.SQUARE_SIZE;
+                    break;
             }
             list[i] = [
                 localPosition.x + x,

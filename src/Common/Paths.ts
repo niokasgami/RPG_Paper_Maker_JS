@@ -1,7 +1,6 @@
 import {Platform} from "../core";
 
 
-
 /**
  * The static class containing Path related constant
  * can be accessed through import
@@ -12,10 +11,10 @@ export class Paths {
     public static readonly BR = "";
     public static readonly ROOT_DIRECTORY_LOCAL = "."
     public static readonly FILES = "file:///";
-    public static readonly DATAS =  Platform.ROOT_DIRECTORY + "/Content/Datas/";
+    public static readonly DATAS = Platform.ROOT_DIRECTORY + "/Content/Datas/";
 
-    public static  readonly FILE_MAPS = Paths.DATAS + "Maps";
-    public static readonly  FILE_MAP_INFOS = "/infos.json";
+    public static readonly FILE_MAPS = Paths.DATAS + "Maps";
+    public static readonly FILE_MAP_INFOS = "/infos.json";
     public static readonly FILE_MAP_OBJECTS = "/objects.json";
     public static readonly FILE_PICTURES_DATAS = Paths.DATAS + "pictures.json";
     public static readonly FILE_VIDEOS_DATAS = Paths.DATAS + "videos.json";
@@ -43,7 +42,7 @@ export class Paths {
     static FILE_SETTINGS = RPM.PATH_DATAS + "settings" + RPM.EXTENSION_JSON;
     static FILE_DLCS = RPM.PATH_DATAS + "dlcs" + RPM.EXTENSION_JSON;
     static FILE_ANIMATIONS = RPM.PATH_DATAS + "animations" + RPM.EXTENSION_JSON;
-    
+
     constructor() {
         throw new Error("This is a static class");
     }

@@ -10,22 +10,19 @@
 */
 
 /** @class
-*   All the weapons datas
-*   @property {SystemWeapon[]} list List of all the weapons of the game
-*   according to ID
-*/
-class DatasWeapons
-{
-    constructor()
-    {
+ *   All the weapons datas
+ *   @property {SystemWeapon[]} list List of all the weapons of the game
+ *   according to ID
+ */
+class DatasWeapons {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to weapons
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_WEAPONS)).weapons;
         this.list = RPM.readJSONSystemList(json, SystemWeapon);
     }

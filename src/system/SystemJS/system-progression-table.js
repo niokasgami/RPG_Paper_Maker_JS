@@ -10,39 +10,34 @@
 */
 
 /** @class
-*   A progression table
-*   @property {number} id The ID
-*   @property {SystemValue} initialValue The initial value
-*   @property {SystemValue} finalValue The final value
-*   @property {number} equation The equation kind
-*   @property {Object} table The table progression
-*   @param {number} [id=undefined] The ID
-*   @param {Object} [json=undefined] Json object describing the progression 
-*   table
-*/
-class SystemProgressionTable
-{
-    constructor(id, json)
-    {
-        if (!RPM.isUndefined(id))
-        {
+ *   A progression table
+ *   @property {number} id The ID
+ *   @property {SystemValue} initialValue The initial value
+ *   @property {SystemValue} finalValue The final value
+ *   @property {number} equation The equation kind
+ *   @property {Object} table The table progression
+ *   @param {number} [id=undefined] The ID
+ *   @param {Object} [json=undefined] Json object describing the progression
+ *   table
+ */
+class SystemProgressionTable {
+    constructor(id, json) {
+        if (!RPM.isUndefined(id)) {
             this.id = id;
         }
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Create a new system progression table
-    *   @param {SystemValue} i The initial value
-    *   @param {SystemValue} f The final value
-    *   @param {number} equation The equation kind
-    *   @returns {SystemProgressionTable}
-    */
-    static create(i, f, equation)
-    {
+     *   @param {SystemValue} i The initial value
+     *   @param {SystemValue} f The final value
+     *   @param {number} equation The equation kind
+     *   @returns {SystemProgressionTable}
+     */
+    static create(i, f, equation) {
         let progression = new SystemProgressionTable();
         progression.initialize(i, f, equation);
         return progression;
@@ -50,38 +45,32 @@ class SystemProgressionTable
 
     // -------------------------------------------------------
     /** Read the JSON associated to the progression table
-    *   @param {Object} json Json object describing the progression table
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the progression table
+     */
+    read(json) {
         this.initialValue = new DynamicValue(json.i);
         this.finalValue = new DynamicValue(json.f);
         this.equation = json.e;
         this.table = {};
         let jsonTable = json.t;
-        if (jsonTable)
-        {
-            for (let i = 0, l = jsonTable.length; i < l; i++)
-            {
+        if (jsonTable) {
+            for (let i = 0, l = jsonTable.length; i < l; i++) {
                 this.table[jsonTable[i].k] = jsonTable[i].v;
             }
         }
     }
-    
+
     // -------------------------------------------------------
     /** Initialize this progression table
-    *   @param {SystemValue} i The initial value
-    *   @param {SystemValue} f The final value
-    *   @param {number} equation The equation kind
-    */
-    initialize(i, f, equation)
-    {
-        if (RPM.isNumber(i))
-        {
+     *   @param {SystemValue} i The initial value
+     *   @param {SystemValue} f The final value
+     *   @param {number} equation The equation kind
+     */
+    initialize(i, f, equation) {
+        if (RPM.isNumber(i)) {
             i = DynamicValue.createNumber(i);
         }
-        if (RPM.isNumber(f))
-        {
+        if (RPM.isNumber(f)) {
             f = DynamicValue.createNumber(f);
         }
         this.initialValue = i;
@@ -92,18 +81,16 @@ class SystemProgressionTable
 
     // -------------------------------------------------------
     /** Get the progression at a current value
-    *   @param {number} current The current value
-    *   @param {number} f The final value
-    *   @param {boolean} [decimal=false] Indicate if the return should have 
-    *   decimal or not
-    *   @returns {number}
-    */
-    getProgressionAt(current, f, decimal = false)
-    {
+     *   @param {number} current The current value
+     *   @param {number} f The final value
+     *   @param {boolean} [decimal=false] Indicate if the return should have
+     *   decimal or not
+     *   @returns {number}
+     */
+    getProgressionAt(current, f, decimal = false) {
         // Check if specific value
         let table = this.table[current];
-        if (table)
-        {
+        if (table) {
             return table;
         }
 
@@ -116,39 +103,38 @@ class SystemProgressionTable
         let x = current - 1;
         let result;
         switch (this.equation) {
-        case 0:
-            result = this.easingLinear(x);
-            break;
-        case -1:
-            result = this.easingQuadraticIn(x);
-            break;
-        case 1:
-            result = this.easingQuadraticOut(x);
-            break;
-        case -2:
-            result = this.easingCubicIn(x);
-            break;
-        case 2:
-            result = this.easingCubicOut(x);
-            break;
-        case -3:
-            result = this.easingQuarticIn(x);
-            break;
-        case 3:
-            result = this.easingQuarticOut(x);
-            break;
-        case -4:
-            result = this.easingQuinticIn(x);
-            break;
-        case 4:
-            result = this.easingQuinticOut(x);
-            break;
-        default:
-            result = 0;
-            break;
+            case 0:
+                result = this.easingLinear(x);
+                break;
+            case -1:
+                result = this.easingQuadraticIn(x);
+                break;
+            case 1:
+                result = this.easingQuadraticOut(x);
+                break;
+            case -2:
+                result = this.easingCubicIn(x);
+                break;
+            case 2:
+                result = this.easingCubicOut(x);
+                break;
+            case -3:
+                result = this.easingQuarticIn(x);
+                break;
+            case 3:
+                result = this.easingQuarticOut(x);
+                break;
+            case -4:
+                result = this.easingQuinticIn(x);
+                break;
+            case 4:
+                result = this.easingQuinticOut(x);
+                break;
+            default:
+                result = 0;
+                break;
         }
-        if (!decimal)
-        {
+        if (!decimal) {
             result = Math.floor(result);
         }
         return result;
@@ -156,54 +142,49 @@ class SystemProgressionTable
 
     // -------------------------------------------------------
     /** The easing linear function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingLinear(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingLinear(x) {
         return this.change * x / this.duration + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing quadratic in function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuadraticIn(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuadraticIn(x) {
         x /= this.duration;
         return this.change * x * x + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing quadratic out function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuadraticOut(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuadraticOut(x) {
         x /= this.duration;
         return -this.change * x * (x - 2) + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing cubic in function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingCubicIn(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingCubicIn(x) {
         x /= this.duration;
         return this.change * x * x * x + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing cubic out function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingCubicOut(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingCubicOut(x) {
         x /= this.duration;
         x--;
         return this.change * (x * x * x + 1) + this.start;
@@ -211,22 +192,20 @@ class SystemProgressionTable
 
     // -------------------------------------------------------
     /** The easing quartic in function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuarticIn(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuarticIn(x) {
         x /= this.duration;
         return this.change * x * x * x * x + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing quartic out function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuarticOut(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuarticOut(x) {
         x /= this.duration;
         x--;
         return -this.change * (x * x * x * x - 1) + this.start;
@@ -234,22 +213,20 @@ class SystemProgressionTable
 
     // -------------------------------------------------------
     /** The easing quintic in function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuinticIn(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuinticIn(x) {
         x /= this.duration;
         return this.change * x * x * x * x * x + this.start;
     }
 
     // -------------------------------------------------------
     /** The easing quintic out function
-    *   @param {number} x
-    *   @returns {number}
-    */
-    easingQuinticOut(x)
-    {
+     *   @param {number} x
+     *   @returns {number}
+     */
+    easingQuinticOut(x) {
         x /= this.duration;
         x--;
         return this.change * (x * x * x * x * x + 1) + this.start;

@@ -12,41 +12,38 @@
 import {BaseSystem} from ".";
 
 /** @class
-*   A way to play a song
-*   @property {number} [SystemPlaySong.previousMusic=null] The music that was 
-*   previously played (before the current)
-*   @property {number} [SystemPlaySong.currentPlayingMusic=null] The current 
-*   playing music
-*   @property {SongKind} kind The kind of song to play
-*   @property {SystemValue} songID The song ID value
-*   @property {SystemValue} volume The volume value
-*   @property {boolean} isStart Indicate if is start
-*   @property {SystemValue} start The start value
-*   @property {boolean} isEnd Indicate if is end
-*   @property {SystemValue} end The end value
-*   @param {SongKind} kind The kind of song to play
-*   @param {Object} [json=undefined] Json object describing the play song
-*/
-class PlaySong extends BaseSystem
-{
+ *   A way to play a song
+ *   @property {number} [SystemPlaySong.previousMusic=null] The music that was
+ *   previously played (before the current)
+ *   @property {number} [SystemPlaySong.currentPlayingMusic=null] The current
+ *   playing music
+ *   @property {SongKind} kind The kind of song to play
+ *   @property {SystemValue} songID The song ID value
+ *   @property {SystemValue} volume The volume value
+ *   @property {boolean} isStart Indicate if is start
+ *   @property {SystemValue} start The start value
+ *   @property {boolean} isEnd Indicate if is end
+ *   @property {SystemValue} end The end value
+ *   @param {SongKind} kind The kind of song to play
+ *   @param {Object} [json=undefined] Json object describing the play song
+ */
+class PlaySong extends BaseSystem {
     static previousMusic: number = null;
     static currentPlayingMusic: number = null;
 
     kind: number;
-    constructor(kind, json)
-    {
+
+    constructor(kind, json) {
         super(json);
         this.kind = kind;
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the play song
-    *   @param {Object} json Json object describing the play song
-    */
-    read(json)
-    {
-        if (!json)
-        {
+     *   @param {Object} json Json object describing the play song
+     */
+    read(json) {
+        if (!json) {
             this.setDefault();
             return;
         }
@@ -63,9 +60,8 @@ class PlaySong extends BaseSystem
 
     // -------------------------------------------------------
     /** Set song play to default values
-    */
-    setDefault()
-    {
+     */
+    setDefault() {
         this.songID = DynamicValue.createNumber(-1);
         this.volume = DynamicValue.createNumber(100);
         this.isStart = false;
@@ -74,9 +70,8 @@ class PlaySong extends BaseSystem
 
     // -------------------------------------------------------
     /** Initialize (for music effects)
-    */
-    initialize()
-    {
+     */
+    initialize() {
         return this.kind === SongKind.MusicEffect ? {
             parallel: false,
             timeStop: new Date().getTime()
@@ -85,15 +80,14 @@ class PlaySong extends BaseSystem
 
     // -------------------------------------------------------
     /** Update all the specified values
-    *   @param {SystemValue} songID The song ID
-    *   @param {SystemValue} volume The volume to play
-    *   @param {boolean} isStart Indicate if there's a start value
-    *   @param {SystemValue} start The start of the song to play
-    *   @param {boolean} isEnd Indicate if there's a end value
-    *   @param {SystemValue} end The end of the song to play
-    */
-    updateValues(songID, volume, isStart, start, isEnd, end)
-    {
+     *   @param {SystemValue} songID The song ID
+     *   @param {SystemValue} volume The volume to play
+     *   @param {boolean} isStart Indicate if there's a start value
+     *   @param {SystemValue} start The start of the song to play
+     *   @param {boolean} isEnd Indicate if there's a end value
+     *   @param {SystemValue} end The end of the song to play
+     */
+    updateValues(songID, volume, isStart, start, isEnd, end) {
         this.songID = songID;
         this.volume = volume;
         this.isStart = isStart;
@@ -104,17 +98,14 @@ class PlaySong extends BaseSystem
 
     // -------------------------------------------------------
     /** Play the music
-    *   @param {number} [start=undefined] The start of the song to play
-    *   @param {number} [volume=undefined] The volume to play
-    */
-    playMusic(start, volume)
-    {
-        if (RPM.isUndefined(start))
-        {
+     *   @param {number} [start=undefined] The start of the song to play
+     *   @param {number} [volume=undefined] The volume to play
+     */
+    playMusic(start, volume) {
+        if (RPM.isUndefined(start)) {
             start = this.start ? this.start.getValue() : null;
         }
-        if (RPM.isUndefined(volume))
-        {
+        if (RPM.isUndefined(volume)) {
             volume = this.volume.getValue() / 100;
         }
 
@@ -122,38 +113,34 @@ class PlaySong extends BaseSystem
         if (PlaySong.currentPlayingMusic !== null && this.songID
             .getValue() === PlaySong.currentPlayingMusic.songID
             .getValue() && start === PlaySong.currentPlayingMusic.start
-            .getValue())
-        {
+            .getValue()) {
             return 1;
         }
         // Update current and previous played music
-        if (this.kind === SongKind.Music)
-        {
+        if (this.kind === SongKind.Music) {
             PlaySong.previousMusic = PlaySong.currentPlayingMusic;
             PlaySong.currentPlayingMusic = this;
         }
-        RPM.songsManager.playMusic(this.kind, this.songID.getValue(), volume, 
+        RPM.songsManager.playMusic(this.kind, this.songID.getValue(), volume,
             start, this.end ? this.end.getValue() : null);
         return 1;
     }
 
     // -------------------------------------------------------
     /** Play the sound
-    */
-    playSound()
-    {
+     */
+    playSound() {
         RPM.songsManager.playSound(this.songID.getValue(), this.volume
             .getValue() / 100);
     }
 
     // -------------------------------------------------------
     /** Play the music effect and return the next node value
-    *   @param {Object} currentState The current state of the playing music 
-    *   effect
-    *   @returns {number}
-    */
-    playMusicEffect(currentState)
-    {
+     *   @param {Object} currentState The current state of the playing music
+     *   effect
+     *   @returns {number}
+     */
+    playMusicEffect(currentState) {
         let played = RPM.songsManager.playMusicEffect(this.songID.getValue(),
             this.volume.getValue() / 100, currentState);
         currentState.end = played;

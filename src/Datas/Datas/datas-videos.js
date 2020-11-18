@@ -10,22 +10,19 @@
 */
 
 /** @class
-*   All the videos datas
-*   @property {SystemVideo[]} list List of all the videos of the game
-*   according to ID
-*/
-class DatasVideos
-{
-    constructor()
-    {
+ *   All the videos datas
+ *   @property {SystemVideo[]} list List of all the videos of the game
+ *   according to ID
+ */
+class DatasVideos {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to videos
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_VIDEOS_DATAS)).list;
         this.list = RPM.readJSONSystemList(json, SystemVideo);
     }

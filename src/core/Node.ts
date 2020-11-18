@@ -1,4 +1,3 @@
-
 /*
     RPG Paper Maker Copyright (C) 2017-2020 Wano
 
@@ -44,16 +43,16 @@ export class Node {
 
     // -------------------------------------------------------
     /** Check if this node is the root of the tree
-    *   @returns {boolean}
-    */
+     *   @returns {boolean}
+     */
     public isRoot() {
         return this.parent === null;
     }
 
     // -------------------------------------------------------
     /** Get the next parent child
-    *   @returns {Node}
-    */
+     *   @returns {Node}
+     */
     public getNext() {
         if (this.next === null) {
             return (this.parent.isRoot()) ? null : this.parent;

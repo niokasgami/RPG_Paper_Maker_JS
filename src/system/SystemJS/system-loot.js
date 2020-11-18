@@ -10,31 +10,27 @@
 */
 
 /** @class
-*   A loot of the game
-*   @property {LootKind} kind The kind of loot
-*   @property {SystemValue} lootID The loot ID value
-*   @property {SystemValue} number The number value
-*   @property {SystemValue} probability The probability value
-*   @property {SystemValue} initial The initial value
-*   @property {SystemValue} final The final value
-*   @param {Object} [json=undefined] Json object describing the loot
-*/
-class SystemLoot
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   A loot of the game
+ *   @property {LootKind} kind The kind of loot
+ *   @property {SystemValue} lootID The loot ID value
+ *   @property {SystemValue} number The number value
+ *   @property {SystemValue} probability The probability value
+ *   @property {SystemValue} initial The initial value
+ *   @property {SystemValue} final The final value
+ *   @param {Object} [json=undefined] Json object describing the loot
+ */
+class SystemLoot {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the loot
-    *   @param {Object} json Json object describing the loot
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the loot
+     */
+    read(json) {
         this.kind = json.k;
         this.lootID = new DynamicValue(json.lid);
         this.number = new DynamicValue(json.n);
@@ -45,23 +41,20 @@ class SystemLoot
 
     // -------------------------------------------------------
     /** Check if a loot is available at a particular level
-    *   @param {number} level The level
-    *   @returns {boolean}
-    */
-    isAvailable(level)
-    {
+     *   @param {number} level The level
+     *   @returns {boolean}
+     */
+    isAvailable(level) {
         return level >= this.initial.getValue() && level <= this.final.getValue();
     }
 
     // -------------------------------------------------------
     /** Get the current loot at a particular level
-    *   @param {number} level The level
-    *   @returns {GameItem}
-    */
-    currenLoot(level)
-    {
-        if (!this.isAvailable(level))
-        {
+     *   @param {number} level The level
+     *   @returns {GameItem}
+     */
+    currenLoot(level) {
+        if (!this.isAvailable(level)) {
             return null;
         }
 
@@ -69,11 +62,9 @@ class SystemLoot
         let proba = this.probability.getValue();
         let totalNumber = this.number.getValue();
         let i, rand, number;
-        for (i = 0, number = 0; i < totalNumber; i++)
-        {
+        for (i = 0, number = 0; i < totalNumber; i++) {
             rand = RPM.random(0, 100);
-            if (rand <= proba)
-            {
+            if (rand <= proba) {
                 number++;
             }
         }

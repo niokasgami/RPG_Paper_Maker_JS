@@ -10,22 +10,19 @@
 */
 
 /** @class
-*   All the armors datas
-*   @property {SystemArmor[]} list List of all the armors of the game according
-*   to ID
-*/
-class DatasArmors
-{
-    constructor()
-    {
+ *   All the armors datas
+ *   @property {SystemArmor[]} list List of all the armors of the game according
+ *   to ID
+ */
+class DatasArmors {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to armors
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_ARMORS)).armors;
         this.list = RPM.readJSONSystemList(json, Armor);
     }

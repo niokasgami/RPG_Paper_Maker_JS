@@ -10,47 +10,40 @@
 */
 
 /** @class
-*   A skill of the game
-*   @extends CommonSkillItem
-*   @param {Object} [json=undefined] Json object describing the skill
-*/
-class SystemSkill extends CommonSkillItem
-{
-    constructor(json)
-    {
+ *   A skill of the game
+ *   @extends CommonSkillItem
+ *   @param {Object} [json=undefined] Json object describing the skill
+ */
+class SystemSkill extends CommonSkillItem {
+    constructor(json) {
         super();
 
         this.hasType = false;
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the skill
-    *   @param {Object} json Json object describing the skill
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the skill
+     */
+    read(json) {
         super.read(json);
     }
-    
+
     // -------------------------------------------------------
     /** Get the string representation of costs
-    *   @returns {string}
-    */
-    getCostString()
-    {
+     *   @returns {string}
+     */
+    getCostString() {
         let result = RPM.STRING_EMPTY;
-        for (let i = 0, l = this.costs.length; i < l; i++)
-        {
+        for (let i = 0, l = this.costs.length; i < l; i++) {
             result += this.costs[i].toString();
-            if (i === l - 1)
-            {
+            if (i === l - 1) {
                 result += RPM.STRING_SPACE;
             }
         }
         return result;
-    }    
+    }
 }

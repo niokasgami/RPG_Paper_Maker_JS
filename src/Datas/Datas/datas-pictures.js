@@ -10,28 +10,24 @@
 */
 
 /** @class
-*   All the pictures datas
-*   @property {SystemPicture[]} list List of all the pictures of the game
-*   according to ID and PictureKind
-*/
-class DatasPictures
-{
-    constructor()
-    {
+ *   All the pictures datas
+ *   @property {SystemPicture[]} list List of all the pictures of the game
+ *   according to ID and PictureKind
+ */
+class DatasPictures {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to pictures
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_PICTURES_DATAS)).list;
         let l = RPM.countFields(PictureKind) - 1;
         this.list = new Array(l);
         let k, j, m, n, id, jsonHash, jsonList, jsonPicture, list, picture;
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             jsonHash = json[i];
             k = jsonHash.k;
             jsonList = jsonHash.v;
@@ -39,34 +35,27 @@ class DatasPictures
             // Get the max ID
             m = jsonList.length;
             n = 0;
-            for (j = 0; j < m; j++)
-            {
+            for (j = 0; j < m; j++) {
                 jsonPicture = jsonList[j];
                 id = jsonPicture.id;
-                if (id > n)
-                {
+                if (id > n) {
                     n = id;
                 }
             }
             // Fill the pictures list
             list = new Array(n + 1);
-            for (j = 0; j < n + 1 + (k === PictureKind.Characters ? 1 : 0); j++)
-            {
+            for (j = 0; j < n + 1 + (k === PictureKind.Characters ? 1 : 0); j++) {
                 jsonPicture = jsonList[j];
-                if (jsonPicture)
-                {
+                if (jsonPicture) {
                     id = jsonPicture.id;
                     picture = new SystemPicture(jsonPicture, k);
                     if (k === PictureKind.Icons || k === PictureKind.Pictures ||
                         k === PictureKind.Facesets || k === PictureKind
-                        .Animations || k === PictureKind.Battlers)
-                    {
+                            .Animations || k === PictureKind.Battlers) {
                         await picture.load();
                     }
-                    if (id !== 0)
-                    {
-                        if (id === -1)
-                        {
+                    if (id !== 0) {
+                        if (id === -1) {
                             id = 0;
                         }
                         list[id] = picture;
@@ -79,35 +68,32 @@ class DatasPictures
 
     // -------------------------------------------------------
     /** Get the corresponding picture
-    *   @param {PictureKind} kind The picture kind
-    *   @param {number} id The picture id
-    *   @returns {SystemPicture}
-    */
-    get(kind, id)
-    {
+     *   @param {PictureKind} kind The picture kind
+     *   @param {number} id The picture id
+     *   @returns {SystemPicture}
+     */
+    get(kind, id) {
         return (kind === PictureKind.None) ? new SystemPicture() : this.list
             [kind][id];
     }
 
     // -------------------------------------------------------
     /** Get a copy of the picture 2D
-    *   @param {PictureKind} kind The picture kind
-    *   @param {number} id The picture id
-    *   @returns {Picture2D}
-    */
-    getPictureCopy(kind, id)
-    {
+     *   @param {PictureKind} kind The picture kind
+     *   @param {number} id The picture id
+     *   @returns {Picture2D}
+     */
+    getPictureCopy(kind, id) {
         let picture = this.get(kind, id);
         return picture ? picture.picture.createCopy() : new Picture2D;
     }
 
     // -------------------------------------------------------
     /** Get the corresponding icon picture
-    *   @param {number} id The picture id of the icon
-    *   @returns {SystemPicture}
-    */
-    getIcon(id)
-    {
+     *   @param {number} id The picture id of the icon
+     *   @returns {SystemPicture}
+     */
+    getIcon(id) {
         return this.get(PictureKind.Icons, id);
     }
 }

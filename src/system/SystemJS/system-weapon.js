@@ -10,37 +10,32 @@
 */
 
 /** @class
-*   A weapon of the game
-*   @extends SystemArmor
-*   @param {Object} [json=undefined] Json object describing the weapon
-*/
-class SystemWeapon extends Armor
-{
-    constructor(json)
-    {
+ *   A weapon of the game
+ *   @extends SystemArmor
+ *   @param {Object} [json=undefined] Json object describing the weapon
+ */
+class SystemWeapon extends Armor {
+    constructor(json) {
         super();
 
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the weapon
-    *   @param {Object} json Json object describing the weapon
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the weapon
+     */
+    read(json) {
         super.read(json);
     }
-    
+
     // -------------------------------------------------------
     /** Get the weapon kind
-    *   @returns {SystemWeaponArmorKind}
-    */
-    getType()
-    {
+     *   @returns {SystemWeaponArmorKind}
+     */
+    getType() {
         return RPM.datasGame.battleSystem.weaponsKind[this.type];
     }
 }

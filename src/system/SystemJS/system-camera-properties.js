@@ -10,44 +10,40 @@
 */
 
 /** @class
-*   A camera properties of the game
-*   @property {number} distance The distance between the target position and 
-*   the camera position
-*   @property {number} horizontalAngle The horizontal angle between target and 
-*   camera
-*   @property {number} verticalAngle The vertical angle between target and 
-*   camera
-*   @property {number} targetOffsetX The target offset x position
-*   @property {number} targetOffsetY The target offset y position
-*   @property {number} targetOffsetZ The target offset z position
-*   @property {boolean} isSquareTargetOffsetX Indicate if the current target x 
-*   offset is square value
-*   @property {number} isSquareTargetOffsetY Indicate if the current target y 
-*   offset is square value
-*   @property {number} isSquareTargetOffsetZ Indicate if the current target z 
-*   offset is square value
-*   @property {number} fov The field of fiew
-*   @property {number} near The near
-*   @property {number} far The far
-*   @param {Object} [json=undefined] Json object describing the camera 
-*   properties
-*/
-class SystemCameraProperties
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   A camera properties of the game
+ *   @property {number} distance The distance between the target position and
+ *   the camera position
+ *   @property {number} horizontalAngle The horizontal angle between target and
+ *   camera
+ *   @property {number} verticalAngle The vertical angle between target and
+ *   camera
+ *   @property {number} targetOffsetX The target offset x position
+ *   @property {number} targetOffsetY The target offset y position
+ *   @property {number} targetOffsetZ The target offset z position
+ *   @property {boolean} isSquareTargetOffsetX Indicate if the current target x
+ *   offset is square value
+ *   @property {number} isSquareTargetOffsetY Indicate if the current target y
+ *   offset is square value
+ *   @property {number} isSquareTargetOffsetZ Indicate if the current target z
+ *   offset is square value
+ *   @property {number} fov The field of fiew
+ *   @property {number} near The near
+ *   @property {number} far The far
+ *   @param {Object} [json=undefined] Json object describing the camera
+ *   properties
+ */
+class SystemCameraProperties {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the camera properties
-    *   @param {Object} json Json object describing the camera properties
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the camera properties
+     */
+    read(json) {
         this.distance = DynamicValue.readOrDefaultNumberDouble(json.d, 250);
         this.horizontalAngle = DynamicValue.readOrDefaultNumberDouble(json.ha,
             -90);
@@ -65,13 +61,12 @@ class SystemCameraProperties
 
     // -------------------------------------------------------
     /** Initialize a camera according this system properties
-    *   @param {Camera} camera The camera
-    */
-    initializeCamera(camera)
-    {
+     *   @param {Camera} camera The camera
+     */
+    initializeCamera(camera) {
         camera.threeCamera = new THREE.PerspectiveCamera(this.fov.getValue(),
             RPM.CANVAS_WIDTH / RPM.CANVAS_HEIGHT, this.near.getValue(), this.far
-            .getValue());
+                .getValue());
         camera.distance = this.distance.getValue() * (RPM.SQUARE_SIZE / RPM
             .BASIC_SQUARE_SIZE);
         camera.horizontalAngle = this.horizontalAngle.getValue();
@@ -79,18 +74,15 @@ class SystemCameraProperties
         camera.verticalRight = true;
         camera.targetPosition = new THREE.Vector3();
         let x = this.targetOffsetX.getValue();
-        if (this.isSquareTargetOffsetX)
-        {
+        if (this.isSquareTargetOffsetX) {
             x *= RPM.SQUARE_SIZE;
         }
         let y = this.targetOffsetY.getValue();
-        if (this.isSquareTargetOffsetY)
-        {
+        if (this.isSquareTargetOffsetY) {
             y *= RPM.SQUARE_SIZE;
         }
         let z = this.targetOffsetZ.getValue();
-        if (this.isSquareTargetOffsetZ)
-        {
+        if (this.isSquareTargetOffsetZ) {
             z *= RPM.SQUARE_SIZE;
         }
         camera.targetOffset = new THREE.Vector3(x, y, z);

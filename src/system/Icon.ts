@@ -10,33 +10,30 @@
 */
 
 /** @class
-*   Something at least including an icon
-*   @extends {SystemLang}
-*   @property {number} pictureID The icon picture ID
-*   @param {Object} [json=undefined] Json object describing the icon
-*/
-import { Lang, SystemStructure} from ".";
+ *   Something at least including an icon
+ *   @extends {SystemLang}
+ *   @property {number} pictureID The icon picture ID
+ *   @param {Object} [json=undefined] Json object describing the icon
+ */
+import {Lang, SystemStructure} from ".";
 
-export class Icon extends Lang implements SystemStructure
-{
+export class Icon extends Lang implements SystemStructure {
     pictureID: number;
 
-    constructor(json)
-    {
+    constructor(json) {
         super(json);
     }
 
-    public assignData() {
-        super.assignData();
+    public setup() {
+        super.setup();
         this.pictureID = 0;
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the icon
-    *   @param {Object} json Json object describing the icon
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the icon
+     */
+    read(json) {
         super.read(json);
 
         this.pictureID = json.pid;

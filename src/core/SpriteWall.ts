@@ -10,12 +10,12 @@
 */
 
 /** @class
-*   A sprite in the map
-*   @extends MapElement
-*   @property {number} id The picture ID of the sprite
-*   @property {SpriteWallKind} kind The kind of wall (border or not)
-*   @param {Object} [json=undefined] Json object describing the wall
-*/
+ *   A sprite in the map
+ *   @extends MapElement
+ *   @property {number} id The picture ID of the sprite
+ *   @property {SpriteWallKind} kind The kind of wall (border or not)
+ *   @param {Object} [json=undefined] Json object describing the wall
+ */
 import {MapElement, Sprite} from ".";
 import THREE from "three";
 import {Enum} from ".";
@@ -23,27 +23,23 @@ import SpriteWallKind = Enum.SpriteWallKind;
 import PictureKind = Enum.PictureKind;
 import {RPM} from "./rpm";
 
-export class SpriteWall extends MapElement
-{
+export class SpriteWall extends MapElement {
     id: number;
     kind: any;
 
-    constructor(json?)
-    {
+    constructor(json?) {
         super();
-        
-        if (json)
-        {
+
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the sprite wall
-    *   @param {Object} json Json object describing the wall
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the wall
+     */
+    read(json) {
         super.read(json);
 
         this.id = json.w;
@@ -52,15 +48,14 @@ export class SpriteWall extends MapElement
 
     // -------------------------------------------------------
     /** Update the geometry of a group of sprite walls with the same material
-    *   @param {THREE.Geometry} geometry The geometry
-    *   @param {number[]} position The json position
-    *   @param {number} width The total width of the texture
-    *   @param {number} height The total height of the texture
-    *   @param {number} count The faces count
-    *   @return {any[]}
-    */
-    updateGeometry(geometry, position, width, height, count)
-    {
+     *   @param {THREE.Geometry} geometry The geometry
+     *   @param {number[]} position The json position
+     *   @param {number} width The total width of the texture
+     *   @param {number} height The total height of the texture
+     *   @param {number} count The faces count
+     *   @return {any[]}
+     */
+    updateGeometry(geometry, position, width, height, count) {
         let vecA = new THREE.Vector3(-0.5, 1.0, 0.0);
         let vecB = new THREE.Vector3(0.5, 1.0, 0.0);
         let vecC = new THREE.Vector3(0.5, 0.0, 0.0);
@@ -112,18 +107,15 @@ export class SpriteWall extends MapElement
         let objCollision = [];
         let collisions = [];
         let wall = RPM.datasGame.specialElements.walls[this.id];
-        if (wall)
-        {
+        if (wall) {
             let picture = RPM.datasGame.pictures.get(PictureKind.Walls, wall
                 .pictureID);
-            if (picture)
-            {
+            if (picture) {
                 collisions = picture.getSquaresForWall(textureRect);
             }
         }
         let rect;
-        for (let i = 0, l = collisions.length; i < l; i++)
-        {
+        for (let i = 0, l = collisions.length; i < l; i++) {
             rect = collisions[i];
             objCollision.push({
                 p: position,
@@ -148,7 +140,7 @@ export class SpriteWall extends MapElement
 
         // Add sprite to geometry
         Sprite.rotateSprite(vecA, vecB, vecC, vecD, center, angle, Sprite.Y_AXIS);
-        count = Sprite.addStaticSpriteToGeometry(geometry, vecA, vecB, vecC, 
+        count = Sprite.addStaticSpriteToGeometry(geometry, vecA, vecB, vecC,
             vecD, texFaceA, texFaceB, count);
         return [count, objCollision];
     }

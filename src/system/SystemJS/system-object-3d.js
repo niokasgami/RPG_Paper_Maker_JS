@@ -10,41 +10,37 @@
 */
 
 /** @class
-*   A 3D object of the game
-*   @extends SystemSpecialElement
-*   @property {number} id The ID
-*   @property {ShapeKind} shapeKind The shape kind
-*   @property {number} objID The .obj ID
-*   @property {number} mtlID The .mtl ID
-*   @property {ObjectCollisionKind} collisionKind The object collision kind
-*   @property {number} collisionCustomID The custom collision ID
-*   @property {number} scale The scale
-*   @property {number} widthSquare The square width
-*   @property {number} widthPixel The pixel width
-*   @property {number} heightSquare The square height
-*   @property {number} heightPixel The pixel height
-*   @property {number} depthSquare The square depth
-*   @property {number} depthPixel The pixel depth
-*   @property {boolean} stretch Indicate if the texture is stretch
-*   @param {Object} [json=undefined] Json object describing the object 3D
-*/
-class SystemObject3D extends SystemSpecialElement
-{
-    constructor(json)
-    {
+ *   A 3D object of the game
+ *   @extends SystemSpecialElement
+ *   @property {number} id The ID
+ *   @property {ShapeKind} shapeKind The shape kind
+ *   @property {number} objID The .obj ID
+ *   @property {number} mtlID The .mtl ID
+ *   @property {ObjectCollisionKind} collisionKind The object collision kind
+ *   @property {number} collisionCustomID The custom collision ID
+ *   @property {number} scale The scale
+ *   @property {number} widthSquare The square width
+ *   @property {number} widthPixel The pixel width
+ *   @property {number} heightSquare The square height
+ *   @property {number} heightPixel The pixel height
+ *   @property {number} depthSquare The square depth
+ *   @property {number} depthPixel The pixel depth
+ *   @property {boolean} stretch Indicate if the texture is stretch
+ *   @param {Object} [json=undefined] Json object describing the object 3D
+ */
+class SystemObject3D extends SystemSpecialElement {
+    constructor(json) {
         super();
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the object 3D
-    *   @param {Object} json Json object describing the object 3D
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the object 3D
+     */
+    read(json) {
         super.read(json);
 
         this.id = json.id;
@@ -65,77 +61,69 @@ class SystemObject3D extends SystemSpecialElement
 
     // -------------------------------------------------------
     /** Get the width in pixels
-    *   @returns {number}
-    */
-    widthPixels()
-    {
+     *   @returns {number}
+     */
+    widthPixels() {
         return (this.widthSquare * RPM.SQUARE_SIZE) + (this.widthPixel *
             RPM.SQUARE_SIZE / 100);
     }
 
     // -------------------------------------------------------
     /** Get the height in pixels
-    *   @returns {number}
-    */
-    heightPixels()
-    {
+     *   @returns {number}
+     */
+    heightPixels() {
         return (this.heightSquare * RPM.SQUARE_SIZE) + (this.heightPixel *
             RPM.SQUARE_SIZE / 100);
     }
 
     // -------------------------------------------------------
     /** Get the depth in pixels
-    *   @returns {number}
-    */
-    depthPixels()
-    {
+     *   @returns {number}
+     */
+    depthPixels() {
         return (this.depthSquare * RPM.SQUARE_SIZE) + (this.depthPixel *
             RPM.SQUARE_SIZE / 100);
     }
 
     // -------------------------------------------------------
     /** Get the width in squares
-    *   @returns {number}
-    */
-    width()
-    {
+     *   @returns {number}
+     */
+    width() {
         return this.widthSquare + (this.widthPixel > 0 ? 1 : 0);
     }
 
     // -------------------------------------------------------
     /** Get the height in squares
-    *   @returns {number}
-    */
-    height()
-    {
+     *   @returns {number}
+     */
+    height() {
         return this.heightSquare + (this.heightPixel > 0 ? 1 : 0);
     }
 
     // -------------------------------------------------------
     /** Get the depth in squares
-    *   @returns {number}
-    */
-    depth()
-    {
+     *   @returns {number}
+     */
+    depth() {
         return this.depthSquare + (this.depthPixel > 0 ? 1 : 0);
     }
 
     // -------------------------------------------------------
     /** Get the size vector
-    *   @returns {THREE.Vector3}
-    */
-    getSizeVector()
-    {
+     *   @returns {THREE.Vector3}
+     */
+    getSizeVector() {
         return new THREE.Vector3(this.widthPixels(), this.heightPixels(), this
             .depthPixels());
     }
 
     // -------------------------------------------------------
     /** Get the shape obj
-    *   @returns {SystemShape}
-    */
-    getObj()
-    {
+     *   @returns {SystemShape}
+     */
+    getObj() {
         return RPM.datasGame.shapes.get(CustomShapeKind.OBJ, this.objID);
     }
 }

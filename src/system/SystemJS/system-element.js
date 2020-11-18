@@ -10,29 +10,25 @@
 */
 
 /** @class
-*   An element of the game
-*   @property {SystemValue[]} efficiency The efficiency list
-*   @param {Object} [json=undefined] Json object describing the element
-*/
-class SystemElement extends Icon
-{
-    constructor(json)
-    {
+ *   An element of the game
+ *   @property {SystemValue[]} efficiency The efficiency list
+ *   @param {Object} [json=undefined] Json object describing the element
+ */
+class SystemElement extends Icon {
+    constructor(json) {
         super();
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the element
-    *   @param {Object} json Json object describing the element
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the element
+     */
+    read(json) {
         super.read(json);
-    
+
         this.efficiency = RPM.readJSONSystemListHash(json.e, DynamicValue);
-    }    
+    }
 }

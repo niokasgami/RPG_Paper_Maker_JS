@@ -13,20 +13,18 @@
 import {Node} from ".";
 
 /** @class
-*   Datas structure of tree
-*   @property {Node} root Node representing the root of the tree
-*   @param {Object} data The data
-*/
-export class Tree
-{
+ *   Datas structure of tree
+ *   @property {Node} root Node representing the root of the tree
+ *   @param {Object} data The data
+ */
+export class Tree {
     public root: Node;
 
     /**
      * The data of the visual tree
      * @param {Record<string, any>} data
      */
-    constructor(data: Record<string, any>)
-    {
+    constructor(data: Record<string, any>) {
         this.root = new Node(null, data);
     }
 
@@ -35,8 +33,7 @@ export class Tree
      * @param {Record<string, any>} data
      * @returns {Node}
      */
-    public add(data: Record<string, any>)
-    {
+    public add(data: Record<string, any>) {
         return this.root.add(data);
     }
 }

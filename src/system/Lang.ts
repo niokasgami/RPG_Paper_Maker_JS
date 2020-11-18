@@ -23,17 +23,18 @@ import {RPM} from "../core";
  */
 export class Lang extends BaseSystem {
 
-    static EMPTY_NAMES = { names: ["", ""] };
+    static EMPTY_NAMES = {names: ["", ""]};
 
-    names: {names: string[]}[];
+    names: { names: string[] }[];
 
     constructor(json = undefined) {
         super(json)
     }
 
-    public assignData() {
+    public setup() {
         this.names = [];
     }
+
     // -------------------------------------------------------
     /** Read the JSON associated to the name in sevaral langs
      *   @param {Object} json Json object describing the name in sevaral langs

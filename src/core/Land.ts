@@ -10,36 +10,32 @@
 */
 
 /** @class
-*   A land in the map
-*   @property {boolean} up Indicate if the layer is up or down
-*   @property {number[]} texture Texture rect of the land
-*/
+ *   A land in the map
+ *   @property {boolean} up Indicate if the layer is up or down
+ *   @property {number[]} texture Texture rect of the land
+ */
 import {MapElement} from ".";
 import THREE from "three";
 import {RPM} from "./rpm";
 
-export class Land extends MapElement
-{
+export class Land extends MapElement {
     up: boolean;
     texture: number[];
 
-    constructor()
-    {
+    constructor() {
         super();
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the land
-    *   @param {Object} json Json object describing the land
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the land
+     */
+    read(json) {
         super.read(json);
 
         this.up = RPM.defaultValue(json.up, true);
         this.texture = json.t;
-        if (this.texture.length === 2)
-        {
+        if (this.texture.length === 2) {
             this.texture.push(1);
             this.texture.push(1);
         }
@@ -47,37 +43,34 @@ export class Land extends MapElement
 
     // -------------------------------------------------------
     /** Return the rect index
-    *   @returns {number}
-    */
-    getIndex(width)
-    {
+     *   @returns {number}
+     */
+    getIndex(width) {
         return this.texture[0] + (this.texture[1] * width);
     }
 
     // -------------------------------------------------------
-    /** Update the geometry associated to this land and return the collision 
-    *   result
-    *   @param {THREE.Geometry} geometry The geometry asoociated to the 
-    *   autotiles
-    *   @param {CollisionSquare} collision The collision square
-    *   @param {number[]} position The json position
-    *   @param {number} width The texture total width
-    *   @param {number} height The texture total height
-    *   @param {number} x The x texture position
-    *   @param {number} y The y texture position
-    *   @param {number} w The w texture size
-    *   @param {number} h The h texture size
-    *   @param {number} count The faces count
-    *   @returns {Object}
-    */
-    updateGeometry(geometry, collision, position, width, height, x, y, w, h, 
-        count)
-    {
+    /** Update the geometry associated to this land and return the collision
+     *   result
+     *   @param {THREE.Geometry} geometry The geometry asoociated to the
+     *   autotiles
+     *   @param {CollisionSquare} collision The collision square
+     *   @param {number[]} position The json position
+     *   @param {number} width The texture total width
+     *   @param {number} height The texture total height
+     *   @param {number} x The x texture position
+     *   @param {number} y The y texture position
+     *   @param {number} w The w texture size
+     *   @param {number} h The h texture size
+     *   @param {number} count The faces count
+     *   @returns {Object}
+     */
+    updateGeometry(geometry, collision, position, width, height, x, y, w, h,
+                   count) {
         let localPosition = RPM.positionToBorderVector3(position);
         let a = localPosition.x;
         let yLayerOffset = RPM.positionLayer(position) * 0.05;
-        if (!this.up)
-        {
+        if (!this.up) {
             yLayerOffset *= -1;
         }
         let b = localPosition.y + yLayerOffset;
@@ -113,15 +106,12 @@ export class Land extends MapElement
         ]);
 
         // Collision
-        if (collision !== null)
-        {
+        if (collision !== null) {
             let rect = collision.rect;
-            if (!collision.hasAllDirections())
-            {
-                if (rect === null)
-                {
+            if (!collision.hasAllDirections()) {
+                if (rect === null) {
                     rect = [
-                        a  + RPM.SQUARE_SIZE / 2,
+                        a + RPM.SQUARE_SIZE / 2,
                         b + 0.5,
                         c + RPM.SQUARE_SIZE / 2,
                         RPM.SQUARE_SIZE,
@@ -136,9 +126,7 @@ export class Land extends MapElement
                     b: rect,
                     c: collision
                 }
-            }
-            else if (rect !== null)
-            {
+            } else if (rect !== null) {
                 objCollision = {
                     p: position,
                     l: localPosition,

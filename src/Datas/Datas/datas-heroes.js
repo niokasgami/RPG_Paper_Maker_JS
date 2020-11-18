@@ -11,22 +11,19 @@
 
 
 /** @class
-*   All the heroes datas
-*   @property {SystemHero[]} list List of all the heroes of the game according
-*   to ID
-*/
-class DatasHeroes
-{
-    constructor()
-    {
+ *   All the heroes datas
+ *   @property {SystemHero[]} list List of all the heroes of the game according
+ *   to ID
+ */
+class DatasHeroes {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to heroes
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_HEROES)).heroes;
         this.list = RPM.readJSONSystemList(json, SystemHero);
     }

@@ -10,40 +10,38 @@
 */
 
 /** @class
-*   All the global informations of the game
-*   @property {number} [DatasGame.VARIABLES_PER_PAGE=25] The number of 
-*   variables per page
-*   @property {DatasSystem} system System datas
-*   @property {DatasPictures} pictures Pictures datas
-*   @property {DatasSongs} songs Songs datas
-*   @property {DatasVideos} videos Videos datas
-*   @property {DatasShapes} shapes Shapes datas
-*   @property {DatasCommonEvents} commonEvents Common events datas
-*   @property {DatasSpecialElements} specialElements Special elements datas
-*   @property {DatasTilesets} tilesets Tilesets datas
-*   @property {DatasItems} items Items datas
-*   @property {DatasSkills} skills Skills datas
-*   @property {DatasWeapons} weapons Weapons datas
-*   @property {DatasArmors} armors Armors datas
-*   @property {DatasClasses} classes Classes datas
-*   @property {DatasHeroes} heroes Heroes datas
-*   @property {DatasMonsters} monsters Monsters datas
-*   @property {DatasTroops} troops Troops datas
-*   @property {DatasBattleSystem} battleSystem Battle System datas
-*   @property {DatasTitlescreenGameover} titlescreenGameover Title screen and 
-*   game over datas
-*   @property {DatasKeyBoard} keyBoard KeyBoard datas
-*   @property {Animattions} animations Animations datas
-*   @property {boolean} loaded Indicate if the datas are all loaded
-*/
+ *   All the global informations of the game
+ *   @property {number} [DatasGame.VARIABLES_PER_PAGE=25] The number of
+ *   variables per page
+ *   @property {DatasSystem} system System datas
+ *   @property {DatasPictures} pictures Pictures datas
+ *   @property {DatasSongs} songs Songs datas
+ *   @property {DatasVideos} videos Videos datas
+ *   @property {DatasShapes} shapes Shapes datas
+ *   @property {DatasCommonEvents} commonEvents Common events datas
+ *   @property {DatasSpecialElements} specialElements Special elements datas
+ *   @property {DatasTilesets} tilesets Tilesets datas
+ *   @property {DatasItems} items Items datas
+ *   @property {DatasSkills} skills Skills datas
+ *   @property {DatasWeapons} weapons Weapons datas
+ *   @property {DatasArmors} armors Armors datas
+ *   @property {DatasClasses} classes Classes datas
+ *   @property {DatasHeroes} heroes Heroes datas
+ *   @property {DatasMonsters} monsters Monsters datas
+ *   @property {DatasTroops} troops Troops datas
+ *   @property {DatasBattleSystem} battleSystem Battle System datas
+ *   @property {DatasTitlescreenGameover} titlescreenGameover Title screen and
+ *   game over datas
+ *   @property {DatasKeyBoard} keyBoard KeyBoard datas
+ *   @property {Animattions} animations Animations datas
+ *   @property {boolean} loaded Indicate if the datas are all loaded
+ */
 
 // TODO : It's probably an DataManager?
-class DatasGame
-{
+class DatasGame {
     static VARIABLES_PER_PAGE = 25;
 
-    constructor()
-    {
+    constructor() {
         this.system = new DatasSystem();
         this.pictures = new DatasPictures();
         this.songs = new DatasSongs();
@@ -69,9 +67,8 @@ class DatasGame
 
     // -------------------------------------------------------
     /** Read the JSON files of all the datas
-    */
-    async read()
-    {
+     */
+    async read() {
         await this.system.read();
         await this.readSettings();
         await this.pictures.read();
@@ -99,18 +96,15 @@ class DatasGame
 
     // -------------------------------------------------------
     /** Read the JSON files associated to the settings (variables, shaders, dlcs)
-    */
-    async readSettings()
-    {
+     */
+    async readSettings() {
         // Variables
         let json = (await RPM.parseFileJSON(RPM.FILE_VARIABLES)).variables;
         this.variablesNumbers = json.length * DatasGame.VARIABLES_PER_PAGE + 1;
         this.variablesNames = new Array(this.variablesNumbers);
         let i, j, l, m, variable;
-        for (i = 0, l = json.length; i < l; i++)
-        {
-            for (j = 0, m = DatasGame.VARIABLES_PER_PAGE; j < m; j++)
-            {
+        for (i = 0, l = json.length; i < l; i++) {
+            for (j = 0, m = DatasGame.VARIABLES_PER_PAGE; j < m; j++) {
                 variable = json[i].list[j];
                 this.variablesNames[variable.id] = variable.name;
             }
@@ -129,11 +123,10 @@ class DatasGame
 
     // -------------------------------------------------------
     /** Get the list of heros or monsters according to kind
-    *   @param {CharacterKind} kind The kind of character
-    *   @returns {SystemHero[]}
-    */
-    getHeroesMonsters(kind)
-    {
+     *   @param {CharacterKind} kind The kind of character
+     *   @returns {SystemHero[]}
+     */
+    getHeroesMonsters(kind) {
         return (kind === CharacterKind.Hero) ? this.heroes : this.monsters;
     }
 }

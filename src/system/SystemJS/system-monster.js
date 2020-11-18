@@ -11,30 +11,26 @@
 
 
 /** @class
-*   A monster of the game
-*   @extends SystemHero
-*   @property {Object} rewards An object containing experience, currencies, and 
-*   loots
-*   @property {SystemMonsterAction[]} actions The monster actions list
-*   @param {Object} [json=undefined] Json object describing the monster
-*/
-class SystemMonster extends SystemHero
-{
-    constructor(json)
-    {
+ *   A monster of the game
+ *   @extends SystemHero
+ *   @property {Object} rewards An object containing experience, currencies, and
+ *   loots
+ *   @property {SystemMonsterAction[]} actions The monster actions list
+ *   @param {Object} [json=undefined] Json object describing the monster
+ */
+class SystemMonster extends SystemHero {
+    constructor(json) {
         super();
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the monster
-    *   @param {Object} json Json object describing the monster
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the monster
+     */
+    read(json) {
         super.read(json);
 
         this.rewards = {};
@@ -48,8 +44,7 @@ class SystemMonster extends SystemHero
         let hash, progression;
         let l = jsonCurrencies.length;
         this.rewards.currencies = new Array(l);
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             hash = jsonCurrencies[i];
             progression = new SystemProgressionTable(hash.k, hash.v);
             this.rewards.currencies[i] = progression;
@@ -60,8 +55,7 @@ class SystemMonster extends SystemHero
 
         // Actions
         this.actions = RPM.readJSONSystemListByIndex(RPM.defaultValue(json
-            .a, []), (jsonAction) =>
-            {
+                .a, []), (jsonAction) => {
                 let action = new SystemMonsterAction(jsonAction);
                 action.monster = this;
                 return action;
@@ -71,28 +65,25 @@ class SystemMonster extends SystemHero
 
     // -------------------------------------------------------
     /** Get the experience reward
-    *   @param {number} level The monster level
-    *   @returns {number}
-    */
-    getRewardExperience(level)
-    {
+     *   @param {number} level The monster level
+     *   @returns {number}
+     */
+    getRewardExperience(level) {
         return this.rewards.xp.getProgressionAt(level, this.getProperty(
             SystemClass.PROPERTY_FINAL_LEVEL));
     }
 
     // -------------------------------------------------------
     /** Get the currencies reward
-    *   @param {number} level The monster level
-    *   @returns {Object}
-    */
-    getRewardCurrencies(level)
-    {
+     *   @param {number} level The monster level
+     *   @returns {Object}
+     */
+    getRewardCurrencies(level) {
         let currencies = {};
         let progression;
-        for (let i = 0, l = this.rewards.currencies.length; i < l; i++)
-        {
+        for (let i = 0, l = this.rewards.currencies.length; i < l; i++) {
             progression = this.rewards.currencies[i];
-            currencies[progression.id] = progression.getProgressionAt(level, 
+            currencies[progression.id] = progression.getProgressionAt(level,
                 this.getProperty(SystemClass.PROPERTY_FINAL_LEVEL));
         }
         return currencies;
@@ -100,27 +91,22 @@ class SystemMonster extends SystemHero
 
     // -------------------------------------------------------
     /** Get the loots reward
-    *   @param {number} level The monster level
-    *   @returns {Object[]}
-    */
-    getRewardLoots(level)
-    {
+     *   @param {number} level The monster level
+     *   @returns {Object[]}
+     */
+    getRewardLoots(level) {
         let list = new Array(3);
         list[LootKind.Item] = {};
         list[LootKind.Weapon] = {};
         list[LootKind.Armor] = {};
         let loot, loots;
-        for (let i = 0, l = this.rewards.loots.length; i < l; i++)
-        {
+        for (let i = 0, l = this.rewards.loots.length; i < l; i++) {
             loot = this.rewards.loots[i].currenLoot(level);
-            if (loot !== null)
-            {
+            if (loot !== null) {
                 loots = list[loot.k];
-                if (loots.hasOwnProperty(loot.id))
-                {
+                if (loots.hasOwnProperty(loot.id)) {
                     loots[loot.id] += loot.nb;
-                } else
-                {
+                } else {
                     loots[loot.id] = loot.nb;
                 }
             }

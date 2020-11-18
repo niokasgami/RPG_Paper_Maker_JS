@@ -3,6 +3,7 @@
  * @author Nio Kasgami
  */
 import THREE from "three";
+
 export class Vector3 extends THREE.Vector3 {
 
     public x: number;
@@ -17,10 +18,10 @@ export class Vector3 extends THREE.Vector3 {
      * @param {boolean} freeze whether or not to freeze the coordinates
      */
     constructor(x = 0, y = 0, z = 0, freeze = false) {
-        super(x,y,z);
+        super(x, y, z);
     }
 
-    public reset(){
+    public reset() {
         this.x = 0;
         this.y = 0;
         this.z = 0;

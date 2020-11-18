@@ -10,17 +10,17 @@ export abstract class BaseSystem {
      * @protected
      */
     protected constructor(json = undefined) {
-        this.assignData();
+        this.setup();
         if (json) {
             this.read(json);
         }
     }
 
     /**
-     * Assign the data
+     * Assign the members
      * @note was used due to Super calling method overwriting data with inheritance call;
      */
-    abstract assignData();
+    abstract setup();
 
     /**
      * Read the json data

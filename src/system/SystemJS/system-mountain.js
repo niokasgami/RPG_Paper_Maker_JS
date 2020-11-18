@@ -10,29 +10,25 @@
 */
 
 /** @class
-*   A mountain of the game
-*   @extends SystemSpecialElement
-*   @property {number} id The ID
-*   @property {MountainCollisionKind} collisionKind The collision kind
-*   @param {Object} [json=undefined] Json object describing the mountain
-*/
-class SystemMountain extends SystemSpecialElement
-{
-    constructor(json)
-    {
+ *   A mountain of the game
+ *   @extends SystemSpecialElement
+ *   @property {number} id The ID
+ *   @property {MountainCollisionKind} collisionKind The collision kind
+ *   @param {Object} [json=undefined] Json object describing the mountain
+ */
+class SystemMountain extends SystemSpecialElement {
+    constructor(json) {
         super();
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the mountain
-    *   @param {Object} json Json object describing the mountain
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the mountain
+     */
+    read(json) {
         super.read(json);
         this.id = json.id;
         this.collisionKind = RPM.defaultValue(json.mck, MountainCollisionKind
@@ -41,19 +37,17 @@ class SystemMountain extends SystemSpecialElement
 
     // -------------------------------------------------------
     /** Check if the collision is always forced
-    *   @returns {boolean}
-    */
-    forceAlways()
-    {
+     *   @returns {boolean}
+     */
+    forceAlways() {
         return this.collisionKind === MountainCollisionKind.Always;
     }
 
     // -------------------------------------------------------
     /** Check if the collision is never forced
-    *   @returns {boolean}
-    */
-    forceNever()
-    {
+     *   @returns {boolean}
+     */
+    forceNever() {
         return this.collisionKind === MountainCollisionKind.Never;
     }
 }

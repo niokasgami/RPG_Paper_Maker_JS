@@ -21,7 +21,7 @@ export class Rectangle {
 
         const anchorX = Anchor2D.MIDDLE_BOTTOM.x;
         const anchorY = Anchor2D.MIDDLE_BOTTOM.y;
-        this.anchor = new Anchor2D(anchorX,anchorY);
+        this.anchor = new Anchor2D(anchorX, anchorY);
     }
 
     public move(x, y) {
@@ -35,8 +35,8 @@ export class Rectangle {
     }
 
     public set(x, y, width, height) {
-        this.move(x,y);
-        this.resize(width,height);
+        this.move(x, y);
+        this.resize(width, height);
     }
 
     public setAnchor(x, y) {

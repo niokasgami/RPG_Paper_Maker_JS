@@ -11,13 +11,12 @@
 
 
 import THREE from "three";
-import {Mountain,TextureBundle} from ".";
+import {Mountain, TextureBundle} from ".";
 
 /**
  * The wrapper class for handle mountains sharing the same texture.
  */
-export class Mountains
-{
+export class Mountains {
     texture: TextureBundle;
     width: number;
     height: number;
@@ -25,8 +24,7 @@ export class Mountains
     count: number;
     mesh: THREE.Mesh;
 
-    constructor(texture: TextureBundle)
-    {
+    constructor(texture: TextureBundle) {
         this.texture = texture;
         this.width = texture.texture.map.image.width;
         this.height = texture.texture.map.image.height;
@@ -38,11 +36,10 @@ export class Mountains
 
     // -------------------------------------------------------
     /** Update the geometry of the mountains according to a mountain
-    *   @param {number[]} position The json position
-    *   @param {Mountain} mountain The moutain to update
-    */
-    updateGeometry(position: number[], mountain: Mountain)
-    {
+     *   @param {number[]} position The json position
+     *   @param {Mountain} mountain The moutain to update
+     */
+    updateGeometry(position: number[], mountain: Mountain) {
         let res = mountain.updateGeometry(this.geometry, this.texture, position,
             this.count);
         this.count = res[0];
@@ -51,9 +48,8 @@ export class Mountains
 
     // -------------------------------------------------------
     /** Create a mesh with material and geometry
-    */
-    createMesh()
-    {
+     */
+    createMesh() {
         this.mesh = new THREE.Mesh(this.geometry, this.texture.texture);
     }
 }

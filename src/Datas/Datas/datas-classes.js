@@ -10,22 +10,19 @@
 */
 
 /** @class
-*   All the classes datas
-*   @property {SystemClass[]} list List of all the classes of the game according
-*   to ID
-*/
-class DatasClasses
-{
-    constructor()
-    {
+ *   All the classes datas
+ *   @property {SystemClass[]} list List of all the classes of the game according
+ *   to ID
+ */
+class DatasClasses {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to classes
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_CLASSES)).classes;
         this.list = RPM.readJSONSystemList(json, SystemClass);
     }

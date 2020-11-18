@@ -5,7 +5,7 @@ export abstract class BaseData {
 
     abstract list: unknown[];
 
-    protected constructor () {
+    protected constructor() {
     }
 
     abstract async read();

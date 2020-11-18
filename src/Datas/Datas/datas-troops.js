@@ -10,22 +10,19 @@
 */
 
 /** @class
-*   All the troops datas
-*   @property {SystemTroop[]} list List of all the troops of the game according
-*   to ID
-*/
-class DatasTroops
-{
-    constructor()
-    {
+ *   All the troops datas
+ *   @property {SystemTroop[]} list List of all the troops of the game according
+ *   to ID
+ */
+class DatasTroops {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to troops
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_TROOPS)).troops;
         this.list = RPM.readJSONSystemList(json, SystemTroop);
     }

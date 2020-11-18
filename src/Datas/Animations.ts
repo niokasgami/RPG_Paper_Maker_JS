@@ -10,27 +10,25 @@
 */
 
 /** @class
-*   All the animations datas
-*   @property {SystemAnimation[]} list List of all the animations of the game
-*   according to ID
-*/
+ *   All the animations datas
+ *   @property {SystemAnimation[]} list List of all the animations of the game
+ *   according to ID
+ */
 import {RPM} from "../core/rpm";
 import {BaseData} from ".";
 import * as System from "../system";
-class Animations extends BaseData
-{
+
+class Animations extends BaseData {
     public list: System.Animation[];
 
-    constructor()
-    {
+    constructor() {
         super();
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to troops.
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_ANIMATIONS)).animations;
         this.list = RPM.readJSONSystemList(json, System.Animation);
     }

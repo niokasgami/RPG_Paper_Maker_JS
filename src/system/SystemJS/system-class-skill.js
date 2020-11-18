@@ -10,27 +10,23 @@
 */
 
 /** @class
-*   A skill to learn for a specific class
-*   @property {number} id The ID of the skill
-*   @property {number} level The level to reach to learn this skill
-*   @param {Object} [json=undefined] Json object describing the class skill
-*/
-class SystemClassSkill
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   A skill to learn for a specific class
+ *   @property {number} id The ID of the skill
+ *   @property {number} level The level to reach to learn this skill
+ *   @param {Object} [json=undefined] Json object describing the class skill
+ */
+class SystemClassSkill {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the class skill
-    *   @param {Object} json Json object describing the class skill
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the class skill
+     */
+    read(json) {
         this.id = json.id;
         this.level = json.l;
     }

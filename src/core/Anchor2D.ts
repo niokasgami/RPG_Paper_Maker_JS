@@ -24,7 +24,7 @@ export class Anchor2D {
      * @param x the x anchors (capped from 0 to 1)
      * @param y the y anchors (capped from 0 to 1)
      */
-    constructor(x = 0.5, y= 0) {
+    constructor(x = 0.5, y = 0) {
         this.x = Mathf.clamp(x, 0, 1);
         this.y = Mathf.clamp(y, 0, 1);
     }

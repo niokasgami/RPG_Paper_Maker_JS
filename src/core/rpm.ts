@@ -12,6 +12,7 @@
 import {Platform} from "."
 import * as THREE from "three";
 import * as System from "../system";
+
 /*
     RPG Paper Maker Copyright (C) 2017-2020 Wano
 
@@ -183,8 +184,7 @@ import * as System from "../system";
  *    @property {function} RPM.operators_compare
  *    @property {function} RPM.operators_numbers
  */
-export class RPM
-{
+export class RPM {
     // -------------------------------------------------------
     //  PATHS
     // -------------------------------------------------------
@@ -367,25 +367,48 @@ export class RPM
     static CUBE_TEXTURE_LOADER = new THREE.CubeTextureLoader();
     static operators_compare =
         [
-            function(a, b) { return a === b },
-            function(a, b) { return a !== b },
-            function(a, b) { return a >= b },
-            function(a, b) { return a <= b },
-            function(a, b) { return a > b },
-            function(a, b) { return a < b }
+            function (a, b) {
+                return a === b
+            },
+            function (a, b) {
+                return a !== b
+            },
+            function (a, b) {
+                return a >= b
+            },
+            function (a, b) {
+                return a <= b
+            },
+            function (a, b) {
+                return a > b
+            },
+            function (a, b) {
+                return a < b
+            }
         ];
     static operators_numbers =
         [
-            function(a, b) { return b },
-            function(a, b) { return a + b },
-            function(a, b) { return a - b },
-            function(a, b) { return a * b },
-            function(a, b) { return a / b },
-            function(a, b) { return a % b }
+            function (a, b) {
+                return b
+            },
+            function (a, b) {
+                return a + b
+            },
+            function (a, b) {
+                return a - b
+            },
+            function (a, b) {
+                return a * b
+            },
+            function (a, b) {
+                return a / b
+            },
+            function (a, b) {
+                return a % b
+            }
         ];
 
-    constructor()
-    {
+    constructor() {
         throw new Error("This class is static.")
     }
 
@@ -399,8 +422,7 @@ export class RPM
      *   @param {string} url The path of the file
      *   @returns {boolean}
      */
-    static fileExists = function(url)
-    {
+    static fileExists = function (url) {
         const fs = require('fs');
         return (fs.existsSync(url));
     }
@@ -411,15 +433,12 @@ export class RPM
      *   @param {string} url The path of the file
      *   @returns {string}
      */
-    static openFile = async function(url)
-    {
+    static openFile = async function (url) {
         const fs = require('fs').promises;
         return (await fs.readFile(url, (e, data) => {
-            if (e)
-            {
+            if (e) {
                 return null;
-            } else
-            {
+            } else {
                 return data;
             }
         })).toString();
@@ -431,8 +450,7 @@ export class RPM
      *   @param {string} url The path of the file
      *   @returns {string}
      */
-    static parseFileJSON = async function(url)
-    {
+    static parseFileJSON = async function (url) {
         return JSON.parse(await RPM.openFile(url));
     }
 
@@ -442,12 +460,10 @@ export class RPM
      *   @param {string} url The path of the file
      *   @param {Object} obj An object that can be stringified by JSON
      */
-    static saveFile = async function(url, obj)
-    {
+    static saveFile = async function (url, obj) {
         const fs = require('fs').promises;
         return await fs.writeFile(url, JSON.stringify(obj), (e) => {
-            if (e)
-            {
+            if (e) {
                 RPM.showError(e);
             }
         });
@@ -463,7 +479,7 @@ export class RPM
      *   @param {boolean} italic Indicate if the text is italic
      *   @returns {string}
      */
-    static createFont = function(fontSize, fontName, bold, italic) {
+    static createFont = function (fontSize, fontName, bold, italic) {
         return (bold ? "bold " : "") + (italic ? "italic " : "") + fontSize +
             "px " + fontName;
     }
@@ -474,11 +490,9 @@ export class RPM
      *   @param {Object} obj The javascript object
      *   @returns {string}
      */
-    static describe(obj)
-    {
+    static describe(obj) {
         var res = RPM.STRING_EMPTY;
-        for (var p in obj)
-        {
+        for (var p in obj) {
             res += console.log(p + RPM.STRING_COLON + RPM.STRING_SPACE + obj[p]);
         }
         return res;
@@ -489,9 +503,8 @@ export class RPM
      *   @static
      *   @param {string} text text to display
      */
-    static show(text)
-    {
-        dia.showMessageBoxSync({ title: 'Error', type: 'error', message: text });
+    static show(text) {
+        dia.showMessageBoxSync({title: 'Error', type: 'error', message: text});
     }
 
     // -------------------------------------------------------
@@ -500,8 +513,7 @@ export class RPM
      *   @param {number} total Total number of seconds
      *   @returns {string}
      */
-    static getStringDate(total)
-    {
+    static getStringDate(total) {
         return (RPM.formatNumber(Math.floor(total / 3600), 4) + RPM.STRING_COLON
             + RPM.formatNumber(Math.floor((total % 3600) / 60), 2) + RPM
                 .STRING_COLON + RPM.formatNumber(Math.floor(total % 60), 2));
@@ -514,8 +526,7 @@ export class RPM
      *   @param {number} size Max number to display
      *   @returns {string}
      */
-    static formatNumber(num, size)
-    {
+    static formatNumber(num, size) {
         return ('000000000' + num).substr(-size);
     }
 
@@ -525,8 +536,7 @@ export class RPM
      *   @param {number} id ID of the map
      *   @returns {string}
      */
-    static generateMapName(id)
-    {
+    static generateMapName(id) {
         return "MAP" + RPM.formatNumber(id, 4);
     }
 
@@ -536,8 +546,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns {number}
      */
-    static positionJSONToIndex(position)
-    {
+    static positionJSONToIndex(position) {
         return (position[0] % RPM.PORTION_SIZE) + (RPM.mod(position[1], RPM
             .PORTION_SIZE) * RPM.PORTION_SIZE) + ((position[3] % RPM
             .PORTION_SIZE) * RPM.PORTION_SIZE * RPM.PORTION_SIZE);
@@ -549,8 +558,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns {number}
      */
-    static positionToIndex(position)
-    {
+    static positionToIndex(position) {
         return (position[0] % RPM.PORTION_SIZE) + (RPM.mod(position[1], RPM
             .PORTION_SIZE) * RPM.PORTION_SIZE) + ((position[2] % RPM
             .PORTION_SIZE) * RPM.PORTION_SIZE * RPM.PORTION_SIZE);
@@ -562,8 +570,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns {THREE.Vector3}
      */
-    static positionToVector3(position)
-    {
+    static positionToVector3(position) {
         let pos = RPM.positionToBorderVector3(position);
         pos.setX(pos.x + (RPM.positionCenterX(position) / 100 * RPM.SQUARE_SIZE));
         pos.setZ(pos.z + (RPM.positionCenterZ(position) / 100 * RPM.SQUARE_SIZE));
@@ -576,8 +583,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns {THREE.Vector3}
      */
-    static positionToBorderVector3(position)
-    {
+    static positionToBorderVector3(position) {
         return new THREE.Vector3(position[0] * RPM.SQUARE_SIZE, (position[1] *
             RPM.SQUARE_SIZE) + (position[2] * RPM.SQUARE_SIZE / 100), position
             [3] * RPM.SQUARE_SIZE);
@@ -589,8 +595,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns {number}
      */
-    static positionTotalY(position)
-    {
+    static positionTotalY(position) {
         return (position[1] * RPM.SQUARE_SIZE) + (position[2] * RPM.SQUARE_SIZE
             / 100);
     }
@@ -601,8 +606,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionLayer(position)
-    {
+    static positionLayer(position) {
         return position[4];
     }
 
@@ -612,8 +616,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionCenterX(position)
-    {
+    static positionCenterX(position) {
         return RPM.defaultValue(position[5], 50);
     }
 
@@ -623,8 +626,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionCenterZ = function(position)
-    {
+    static positionCenterZ = function (position) {
         return RPM.defaultValue(position[6], 50);
     }
 
@@ -634,8 +636,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionAngleY(position)
-    {
+    static positionAngleY(position) {
         return RPM.defaultValue(position[7], 0);
     }
 
@@ -645,8 +646,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionAngleX(position)
-    {
+    static positionAngleX(position) {
         return RPM.defaultValue(position[8], 0);
     }
 
@@ -656,8 +656,7 @@ export class RPM
      *   @param {number[]} position The json position
      *   @returns number
      */
-    static positionAngleZ(position)
-    {
+    static positionAngleZ(position) {
         return RPM.defaultValue(position[9], 0);
     }
 
@@ -667,8 +666,7 @@ export class RPM
      *   @param {number} x The position on screen
      *   @returns {number}
      */
-    static getScreenX(x)
-    {
+    static getScreenX(x) {
         return Math.ceil(RPM.getDoubleScreenX(x));
     }
 
@@ -678,8 +676,7 @@ export class RPM
      *   @param {number} y The position on screen
      *   @returns {number}
      */
-    static getScreenY(y)
-    {
+    static getScreenY(y) {
         return Math.ceil(RPM.getDoubleScreenY(y));
     }
 
@@ -690,8 +687,7 @@ export class RPM
      *   @returns {number}
      */
 
-    static getScreenXY(xy)
-    {
+    static getScreenXY(xy) {
         return Math.ceil((RPM.WINDOW_X + RPM.WINDOW_Y) / 2 * xy);
     }
 
@@ -702,9 +698,8 @@ export class RPM
      *   @returns {number}
      */
 
-    static getScreenMinXY(xy)
-    {
-        return Math.ceil(xy * Math.min(RPM.WINDOW_X,RPM.WINDOW_Y));
+    static getScreenMinXY(xy) {
+        return Math.ceil(xy * Math.min(RPM.WINDOW_X, RPM.WINDOW_Y));
     }
 
     // -------------------------------------------------------
@@ -714,8 +709,7 @@ export class RPM
      *   @param {number} x The position on screen
      *   @returns {number}
      */
-    static getDoubleScreenX(x)
-    {
+    static getDoubleScreenX(x) {
         return RPM.WINDOW_X * x;
     }
 
@@ -726,8 +720,7 @@ export class RPM
      *   @param {number} y The position on screen
      *   @returns {number}
      */
-    static getDoubleScreenY(y)
-    {
+    static getDoubleScreenY(y) {
         return RPM.WINDOW_Y * y;
     }
 
@@ -737,8 +730,7 @@ export class RPM
      *   @param {number} x The position
      *   @returns {number}
      */
-    static getSquare(x)
-    {
+    static getSquare(x) {
         return Math.floor(x / RPM.SQUARE_SIZE);
     }
 
@@ -748,8 +740,7 @@ export class RPM
      *   @param {Object} obj The object to count fields
      *   @returns {number}
      */
-    static countFields(obj)
-    {
+    static countFields(obj) {
         if (obj.__count__ !== undefined) // Old FF
         {
             return obj.__count__;
@@ -762,10 +753,8 @@ export class RPM
 
         // Everything else:
         let c = 0;
-        for (let p in obj)
-        {
-            if (obj.hasOwnProperty(p))
-            {
+        for (let p in obj) {
+            if (obj.hasOwnProperty(p)) {
                 c += 1;
             }
         }
@@ -778,8 +767,7 @@ export class RPM
      *   @param {any[]} array The array to test
      *   @returns {boolean}
      */
-    static isEmpty(array)
-    {
+    static isEmpty(array) {
         return array[0] == null;
     }
 
@@ -789,8 +777,7 @@ export class RPM
      *   @param {number} w The value
      *   @returns {number}
      */
-    static cos(w)
-    {
+    static cos(w) {
         return parseFloat(Math.cos(w).toFixed(10));
     }
 
@@ -800,8 +787,7 @@ export class RPM
      *   @param {number} w The value
      *   @returns {number}
      */
-    static sin(w)
-    {
+    static sin(w) {
         return parseFloat(Math.sin(w).toFixed(10));
     }
 
@@ -811,8 +797,7 @@ export class RPM
      *   @param {THREE.Vector3} position The position
      *   @returns {number[]}
      */
-    static getPortion(position)
-    {
+    static getPortion(position) {
         return RPM.getPortionArray(RPM.getPosition(position));
     }
 
@@ -822,8 +807,7 @@ export class RPM
      *   @param {number[]} p The array position
      *   @returns {number[]}
      */
-    static getPortionArray(p)
-    {
+    static getPortionArray(p) {
         return [
             Math.floor(p[0] / RPM.PORTION_SIZE),
             Math.floor(p[1] / RPM.PORTION_SIZE),
@@ -837,8 +821,7 @@ export class RPM
      *   @param {THREE.Vector3} position The position
      *   @returns {number[]}
      */
-    static getPosition(position)
-    {
+    static getPosition(position) {
         return [
             Math.floor(position.x / RPM.SQUARE_SIZE),
             Math.floor(position.y / RPM.SQUARE_SIZE),
@@ -853,8 +836,7 @@ export class RPM
      *   @param {number[]} portion2
      *   @returns {boolean}
      */
-    static arePortionEquals(portion1, portion2)
-    {
+    static arePortionEquals(portion1, portion2) {
         return (portion1[0] === portion2[0] && portion1[1] === portion2[1] &&
             portion1[2] === portion2[2]);
     }
@@ -864,8 +846,7 @@ export class RPM
      *   @static
      *   @param {Error} e The error message
      */
-    static showError(e)
-    {
+    static showError(e) {
         RPM.showErrorMessage(e.fileName + " - line: " + e.lineNumber + " -> " +
             e.message + RPM.STRING_NEW_LINE + e.stack);
     }
@@ -875,10 +856,8 @@ export class RPM
      *   @static
      *   @param {string} msg The error message
      */
-    static showErrorMessage(msg)
-    {
-        if (Platform.DESKTOP)
-        {
+    static showErrorMessage(msg) {
+        if (Platform.DESKTOP) {
             const dialog = require('electron').remote.dialog;
             dialog.showMessageBoxSync(
                 {
@@ -887,8 +866,7 @@ export class RPM
                     message: msg
                 }
             );
-        } else
-        {
+        } else {
             console.alert(msg);
         }
     }
@@ -900,8 +878,7 @@ export class RPM
      *   @param {number} m
      *   @returns {number}
      */
-    static mod(x, m)
-    {
+    static mod(x, m) {
         let r = x % m;
         return r < 0 ? r + m : r;
     }
@@ -912,11 +889,9 @@ export class RPM
      *   @param {number[]} list A list containing only IDs
      *   @returns {number}
      */
-    static getMaxID(list)
-    {
+    static getMaxID(list) {
         let max = 0;
-        for (let i = 0, l = list.length; i < l; i++)
-        {
+        for (let i = 0, l = list.length; i < l; i++) {
             max = Math.max(list[i], max);
         }
         return max;
@@ -928,11 +903,9 @@ export class RPM
      *   @param {number} size The list size
      *   @returns {any[]}
      */
-    static fillNullList(size)
-    {
+    static fillNullList(size) {
         let list = new Array(size);
-        for (let i = 0; i < size; i++)
-        {
+        for (let i = 0; i < size; i++) {
             list[i] = null;
         }
         return list;
@@ -945,8 +918,7 @@ export class RPM
      *   @param {number} max
      *   @returns {number}
      */
-    static random(min, max)
-    {
+    static random(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
@@ -955,14 +927,14 @@ export class RPM
      *   @param {string} path The path of the texture
      *   @returns {THREE.ShaderMaterial}
      */
-    static async loadTexture(path)
-    {
+    static async loadTexture(path) {
         let texture = await new Promise((resolve, reject) => {
             RPM.textureLoader.load(path,
                 (t) => {
                     resolve(t);
                 },
-                (t) => {},
+                (t) => {
+                },
                 (t) => {
                     RPM.showErrorMessage("Could not load " + path);
                 }
@@ -975,8 +947,7 @@ export class RPM
     /** Load a texture empty
      *   @returns {THREE.MeshBasicMaterial}
      */
-    static loadTextureEmpty()
-    {
+    static loadTextureEmpty() {
         return new THREE.MeshBasicMaterial(
             {
                 transparent: true,
@@ -990,23 +961,21 @@ export class RPM
     /** Create a material from texture.
      *   @returns {THREE.ShaderMaterial}
      */
-    static createMaterial(texture, opts)
-    {
+    static createMaterial(texture, opts) {
         opts = RPM.defaultValue(opts, {})
         texture.magFilter = THREE.NearestFilter;
         texture.minFilter = THREE.NearestFilter;
         texture.flipY = opts.flipY;
-        if (!opts.uniforms)
-        {
+        if (!opts.uniforms) {
             opts.uniforms = {
-                texture: { type: "t", value: texture },
-                colorD: { type: "v4", value: RPM.screenTone },
-                reverseH: { type: "b", value: opts.flipX },
+                texture: {type: "t", value: texture},
+                colorD: {type: "v4", value: RPM.screenTone},
+                reverseH: {type: "b", value: opts.flipX},
             };
         }
         let material = new THREE.ShaderMaterial({
-            uniforms:       opts.uniforms,
-            vertexShader:   RPM.SHADER_FIX_VERTEX,
+            uniforms: opts.uniforms,
+            vertexShader: RPM.SHADER_FIX_VERTEX,
             fragmentShader: RPM.SHADER_FIX_FRAGMENT,
             transparent: true,
             side: THREE.DoubleSide
@@ -1020,8 +989,7 @@ export class RPM
      *   @static
      *   @param {SystemColor} color
      */
-    static updateBackgroundColor(color)
-    {
+    static updateBackgroundColor(color) {
         RPM.renderer.setClearColor(color.getHex(RPM.screenTone), color.alpha);
     }
 
@@ -1032,14 +1000,13 @@ export class RPM
      *   @param {THREE.Camera} camera The three.js camera
      *   @returns {THREE.Vector2}
      */
-    static toScreenPosition(vector, camera)
-    {
+    static toScreenPosition(vector, camera) {
         let widthHalf = RPM.CANVAS_WIDTH / 2;
         let heightHalf = RPM.CANVAS_HEIGHT / 2;
         let position = vector.clone();
         camera.updateMatrixWorld(true);
         position.project(camera);
-        return new THREE.Vector2((position.x * widthHalf) + widthHalf, - (
+        return new THREE.Vector2((position.x * widthHalf) + widthHalf, -(
             position.y * heightHalf) + heightHalf);
     }
 
@@ -1050,8 +1017,7 @@ export class RPM
      *   @param {number} variance
      *   @returns {number}
      */
-    static variance(value, variance)
-    {
+    static variance(value, variance) {
         let v = Math.round(value * variance / 100);
         return RPM.random(value - v, value + v);
     }
@@ -1065,8 +1031,7 @@ export class RPM
      *   @param {number} damage Damage value
      *   @returns {any}
      */
-    static evaluateFormula(formula, user, target, damage)
-    {
+    static evaluateFormula(formula, user, target, damage) {
         return new Function("u", "t", "damage", "$that", "return " + formula)(
             user, target, damage, $that);
     }
@@ -1077,8 +1042,7 @@ export class RPM
      *   @param {string} script The script
      *   @returns {any}
      */
-    static evaluateScript(script)
-    {
+    static evaluateScript(script) {
         return new Function("$that", script)($that);
     }
 
@@ -1088,8 +1052,7 @@ export class RPM
      *   @param {string} formula The formula
      *   @returns {boolean}
      */
-    static formulaContainsUser(formula)
-    {
+    static formulaContainsUser(formula) {
         return formula.contains("u");
     }
 
@@ -1099,8 +1062,7 @@ export class RPM
      *   @param {string} formula The formula
      *   @returns {boolean}
      */
-    static formulaContainsTarget(formula)
-    {
+    static formulaContainsTarget(formula) {
         return formula.contains("t");
     }
 
@@ -1111,8 +1073,7 @@ export class RPM
      *   @param {any} defaultValue The default value
      *   @returns {any}
      */
-    static defaultValue(value, defaultValue)
-    {
+    static defaultValue(value, defaultValue) {
         return RPM.isUndefined(value) ? defaultValue : value;
     }
 
@@ -1122,8 +1083,7 @@ export class RPM
      *   @param {any} value The value
      *   @returns {boolean}
      */
-    static isUndefined(value)
-    {
+    static isUndefined(value) {
         return typeof value === RPM.UNDEFINED;
     }
 
@@ -1133,8 +1093,7 @@ export class RPM
      *   @param {any} value The value
      *   @returns {boolean}
      */
-    static isNumber(value)
-    {
+    static isNumber(value) {
         return typeof value === RPM.NUMBER;
     }
 
@@ -1144,8 +1103,7 @@ export class RPM
      *   @param {any} value The value
      *   @returns {boolean}
      */
-    static isString(value)
-    {
+    static isString(value) {
         return typeof value === RPM.STRING;
     }
 
@@ -1155,8 +1113,7 @@ export class RPM
      *   @param {number} num The number
      *   @returns {boolean}
      */
-    static numToBool(num)
-    {
+    static numToBool(num) {
         return num === RPM.NUM_BOOL_TRUE;
     }
 
@@ -1166,8 +1123,7 @@ export class RPM
      *   @param {boolean} b The boolean
      *   @returns {number}
      */
-    static boolToNum(b)
-    {
+    static boolToNum(b) {
         return b ? RPM.NUM_BOOL_TRUE : RPM.NUM_BOOL_FALSE;
     }
 
@@ -1177,8 +1133,7 @@ export class RPM
      *   @param {number} n The number
      *   @returns {string}
      */
-    static numToString(n)
-    {
+    static numToString(n) {
         return RPM.STRING_EMPTY + n;
     }
 
@@ -1191,12 +1146,9 @@ export class RPM
      *   @param {any} value The value to check on the object attribute
      *   @returns {number}
      */
-    static indexOfProp(array, attr, value)
-    {
-        for (let i = 0, l = array.length; i < l; i ++)
-        {
-            if (array[i][attr] === value)
-            {
+    static indexOfProp(array, attr, value) {
+        for (let i = 0, l = array.length; i < l; i++) {
+            if (array[i][attr] === value) {
                 return i;
             }
         }
@@ -1212,13 +1164,11 @@ export class RPM
      *   constructor class
      *   @returns {any[]}
      */
-    static readJSONSystemList(jsonList, func, isConstructor = true)
-    {
+    static readJSONSystemList(jsonList, func, isConstructor = true) {
         let jsonElement;
         let l = jsonList.length;
         let list = [];
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             jsonElement = jsonList[i];
             list[jsonElement.id] = isConstructor ? new func(jsonElement) : func
                 .call(null, jsonElement);
@@ -1235,13 +1185,11 @@ export class RPM
      *   constructor class
      *   @returns {any[]}
      */
-    static readJSONSystemListByIndex(jsonList, func, isConstructor = true)
-    {
+    static readJSONSystemListByIndex(jsonList, func, isConstructor = true) {
         let jsonElement;
         let l = jsonList.length;
         let list = new Array(l);
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             jsonElement = jsonList[i];
             list[i] = isConstructor ? new func(jsonElement) : func.call(null,
                 jsonElement);
@@ -1262,13 +1210,11 @@ export class RPM
      *   @returns {number}
      */
     static readJSONSystemListByIDIndex(jsonList, listIDs, listIndexes, func,
-                                       isConstructor = true)
-    {
+                                       isConstructor = true) {
         let l = jsonList.length;
         let maxID = 0;
         let id, jsonElement;
-        for (let i = 0; i < l; i++)
-        {
+        for (let i = 0; i < l; i++) {
             jsonElement = jsonList[i];
             id = jsonElement.id;
             listIDs[id] = isConstructor ? new func(jsonElement) : func.call(null
@@ -1288,12 +1234,10 @@ export class RPM
      *   constructor class
      *   @returns {any[]}
      */
-    static readJSONSystemListHash(jsonList, func, isConstructor = true)
-    {
+    static readJSONSystemListHash(jsonList, func, isConstructor = true) {
         let list = [];
         let jsonElement;
-        for (let i = 0, l = jsonList.length; i < l; i++)
-        {
+        for (let i = 0, l = jsonList.length; i < l; i++) {
             jsonElement = jsonList[i];
             list[jsonElement[RPM.JSON_KEY]] = isConstructor ? new func(
                 jsonElement[RPM.JSON_VALUE]) : func.call(null, jsonElement);
@@ -1307,13 +1251,10 @@ export class RPM
      *   @param {function} func The async function to apply
      *   @returns {any}
      */
-    static async tryCatch(func)
-    {
-        try
-        {
+    static async tryCatch(func) {
+        try {
             return await func;
-        } catch(e)
-        {
+        } catch (e) {
             window.onerror(null, null, null, null, e);
         }
     }
@@ -1321,8 +1262,7 @@ export class RPM
     // -------------------------------------------------------
     /** Initialize the game stack and datas
      */
-    static initialize()
-    {
+    static initialize() {
         RPM.songsManager = new SongsManager();
         RPM.settings = new Settings();
         RPM.datasGame = new DatasGame();
@@ -1334,8 +1274,7 @@ export class RPM
     // -------------------------------------------------------
     /** Load the game stack and datas
      */
-    static async load()
-    {
+    static async load() {
         await RPM.settings.read();
         await RPM.datasGame.read();
         RPM.gameStack.pushTitleScreen();
@@ -1346,8 +1285,7 @@ export class RPM
     // -------------------------------------------------------
     /** Clear the HUD canvas
      */
-    static clearHUD()
-    {
+    static clearHUD() {
         Platform.ctx.clearRect(0, 0, RPM.CANVAS_WIDTH, RPM.CANVAS_HEIGHT);
         Platform.ctx.lineWidth = 1;
         Platform.ctx.webkitImageSmoothingEnabled = false;
@@ -1357,29 +1295,30 @@ export class RPM
     // -------------------------------------------------------
     /** Initialize the openGL stuff
      */
-    static initializeGL()
-    {
+    static initializeGL() {
         // Create the renderer
-        RPM.renderer = new THREE.WebGLRenderer({antialias: RPM.datasGame.system
-                .antialias, alpha: true});
+        RPM.renderer = new THREE.WebGLRenderer({
+            antialias: RPM.datasGame.system
+                .antialias, alpha: true
+        });
         RPM.renderer.autoClear = false;
         RPM.renderer.setSize(RPM.CANVAS_WIDTH, RPM.CANVAS_HEIGHT);
-        if (RPM.datasGame.system.antialias)
-        {
+        if (RPM.datasGame.system.antialias) {
             RPM.renderer.setPixelRatio(2);
         }
         Platform.canvas3D.appendChild(RPM.renderer.domElement);
     }
-    static CANVAS_HEIGHT =0 ; static CANVAS_WIDTH= 0;
+
+    static CANVAS_HEIGHT = 0;
+    static CANVAS_WIDTH = 0;
+
     // -------------------------------------------------------
     /** Set the camera aspect while resizing the window
      */
-    static resizeGL()
-    {
+    static resizeGL() {
         RPM.renderer.setSize(RPM.CANVAS_WIDTH, RPM.CANVAS_HEIGHT);
         let camera = RPM.gameStack.camera;
-        if (!RPM.isUndefined(camera))
-        {
+        if (!RPM.isUndefined(camera)) {
             camera.threeCamera.aspect = RPM.CANVAS_WIDTH / RPM.CANVAS_HEIGHT;
             camera.threeCamera.updateProjectionMatrix();
         }
@@ -1388,11 +1327,9 @@ export class RPM
     // -------------------------------------------------------
     /** Update the current stack
      */
-    static update()
-    {
+    static update() {
         // Update game timer if there's a current game
-        if (RPM.game)
-        {
+        if (RPM.game) {
             RPM.game.playTime.update();
         }
 
@@ -1401,11 +1338,9 @@ export class RPM
 
         // Repeat keypress as long as not blocking
         let continuePressed;
-        for (let i = 0, l = RPM.keysPressed.length; i < l; i++)
-        {
+        for (let i = 0, l = RPM.keysPressed.length; i < l; i++) {
             continuePressed = RPM.onKeyPressedRepeat(RPM.keysPressed[i]);
-            if (!continuePressed)
-            {
+            if (!continuePressed) {
                 break;
             }
         }
@@ -1418,8 +1353,7 @@ export class RPM
     /** First key press handle for the current stack
      *   @param {number} key The key ID pressed
      */
-    static onKeyPressed(key)
-    {
+    static onKeyPressed(key) {
         RPM.gameStack.onKeyPressed(key);
     }
 
@@ -1427,8 +1361,7 @@ export class RPM
     /** First key release handle for the current stack
      *   @param {number} key The key ID released
      */
-    static onKeyReleased(key)
-    {
+    static onKeyReleased(key) {
         RPM.gameStack.onKeyReleased(key);
     }
 
@@ -1437,8 +1370,7 @@ export class RPM
      *   @param {number} key The key ID pressed
      *   @returns {boolean} false if the other keys are blocked after it
      */
-    static onKeyPressedRepeat(key)
-    {
+    static onKeyPressedRepeat(key) {
         return RPM.gameStack.onKeyPressedRepeat(key);
     }
 
@@ -1448,16 +1380,14 @@ export class RPM
      *   @param {number} key The key ID pressed
      *   @returns {boolean} false if the other keys are blocked after it
      */
-    static onKeyPressedAndRepeat(key)
-    {
+    static onKeyPressedAndRepeat(key) {
         return RPM.gameStack.onKeyPressedAndRepeat(key);
     }
 
     // -------------------------------------------------------
     /** Draw the 3D for the current stack
      */
-    static draw3D()
-    {
+    static draw3D() {
         RPM.gameStack.draw3D();
     }
 
@@ -1467,20 +1397,15 @@ export class RPM
     // -------------------------------------------------------
     /** Draw HUD for the current stack
      */
-    static drawHUD = function()
-    {
-        if (RPM.requestPaintHUD)
-        {
-            if (RPM.gameStack.isLoading() && RPM.loadingScene)
-            {
+    static drawHUD = function () {
+        if (RPM.requestPaintHUD) {
+            if (RPM.gameStack.isLoading() && RPM.loadingScene) {
                 RPM.loadingDelay += RPM.elapsedTime;
-                if (RPM.loadingDelay >= RPM.LOADING_MIN_DELAY)
-                {
+                if (RPM.loadingDelay >= RPM.LOADING_MIN_DELAY) {
                     RPM.requestPaintHUD = false;
                     RPM.loadingScene.drawHUD();
                 }
-            } else
-            {
+            } else {
                 RPM.requestPaintHUD = false;
                 RPM.loadingDelay = 0;
                 RPM.clearHUD();
@@ -1492,19 +1417,15 @@ export class RPM
     // -------------------------------------------------------
     /** Main loop of the game
      */
-    static loop()
-    {
+    static loop() {
         requestAnimationFrame(RPM.loop);
 
         // Update if everything is loaded
-        if (RPM.datasGame.loaded)
-        {
-            if (!RPM.gameStack.isLoading())
-            {
+        if (RPM.datasGame.loaded) {
+            if (!RPM.gameStack.isLoading()) {
                 RPM.update();
             }
-            if (!RPM.gameStack.isLoading())
-            {
+            if (!RPM.gameStack.isLoading()) {
                 RPM.draw3D();
             }
         }
@@ -1515,4 +1436,5 @@ export class RPM
         RPM.averageElapsedTime = (RPM.averageElapsedTime + RPM.elapsedTime) / 2;
         RPM.lastUpdateTime = new Date().getTime();
     }
-}}
+}
+}

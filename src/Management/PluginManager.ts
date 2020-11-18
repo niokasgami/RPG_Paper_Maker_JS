@@ -10,13 +10,13 @@ export class PluginManager {
         throw new Error("This is a static class");
     }
 
-    static load(){
+    static load() {
         // @todo let Wano implement the logics since I have no idea of how to do it.
         // @todo should it be Async?
     }
 
-    static register(plugin: string, parameters: any){
-        if(this.plugins.hasOwnProperty(plugin)) {
+    static register(plugin: string, parameters: any) {
+        if (this.plugins.hasOwnProperty(plugin)) {
             throw new Error("Duplicate error: " + plugin + " is an duplicate of " + this.plugins[plugin].name);
         } else {
             this.plugins[plugin] = parameters;
@@ -29,7 +29,7 @@ export class PluginManager {
      * @returns {any}
      */
     static fetch(plugin) {
-        if(!this.plugins.hasOwnProperty(plugin)){
+        if (!this.plugins.hasOwnProperty(plugin)) {
             throw new Error("Unindenfied plugin error: " + plugin + " doesn't exist in the current workspace!");
         } else {
             return this.plugins[plugin];
@@ -57,7 +57,7 @@ export class PluginManager {
      * @param plugin
      * @returns {any}
      */
-    static parameters(plugin){
+    static parameters(plugin) {
         return this.plugins[plugin].parameters;
     }
 
@@ -68,7 +68,7 @@ export class PluginManager {
      * @param {string} parent
      * @param {string} child
      */
-    static merge(parent: string,child: string){
+    static merge(parent: string, child: string) {
         const par = this.plugins[parent].parameter;
         const chi = this.plugins[child].parameter;
         this.plugins[parent].parameters = {...par, ...chi};

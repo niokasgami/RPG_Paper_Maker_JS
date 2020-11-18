@@ -77,6 +77,6 @@ export class Common {
     }
 
     public static isUndefined(value: any): boolean {
-        return  typeof value === this.UNDEFINED;
+        return typeof value === this.UNDEFINED;
     }
 }

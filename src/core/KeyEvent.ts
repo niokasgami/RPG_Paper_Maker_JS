@@ -1,5 +1,4 @@
-export class KeyEvent
-{
+export class KeyEvent {
     static DOM_VK_CANCEL = 3;
     static DOM_VK_HELP = 6;
     static DOM_VK_BACK_SPACE = 8;
@@ -154,10 +153,8 @@ export class KeyEvent
      *   @param {number} key The qt key to convert
      *   @returns {number}
      */
-    static qtToDOM(key)
-    {
-        switch (key)
-        {
+    static qtToDOM(key) {
+        switch (key) {
             case 16777219:
                 return KeyEvent.DOM_VK_BACK_SPACE;
             case 16777217:
@@ -283,8 +280,7 @@ export class KeyEvent
      *   @param {number} key The key ID
      *   @returns {boolean}
      */
-    static isKeyNumberPADPressed(key)
-    {
+    static isKeyNumberPADPressed(key) {
         return key >= KeyEvent.DOM_VK_NUMPAD0 && key <= KeyEvent.DOM_VK_NUMPAD9;
     }
 
@@ -294,8 +290,7 @@ export class KeyEvent
      *   @param {number} key The key ID
      *   @returns {boolean}
      */
-    static isKeyNumberTopPressed(key)
-    {
+    static isKeyNumberTopPressed(key) {
         let shift = RPM.keysPressed.indexOf(KeyEvent.DOM_VK_SHIFT) !== -1;
         return shift && key >= KeyEvent.DOM_VK_0 && key <= KeyEvent.DOM_VK_9;
     }
@@ -306,8 +301,7 @@ export class KeyEvent
      *   @param {number} key The key ID
      *   @returns {boolean}
      */
-    static isKeyNumberPressed(key)
-    {
+    static isKeyNumberPressed(key) {
         return KeyEvent.isKeyNumberPADPressed(key) || KeyEvent
             .isKeyNumberTopPressed(key);
     }
@@ -318,26 +312,21 @@ export class KeyEvent
      *   @param {number} key The key ID
      *   @returns {string}
      */
-    static getKeyChar(key)
-    {
+    static getKeyChar(key) {
         // Character
-        if (key >= KeyEvent.DOM_VK_A && key <= KeyEvent.DOM_VK_Z)
-        {
+        if (key >= KeyEvent.DOM_VK_A && key <= KeyEvent.DOM_VK_Z) {
             return String.fromCharCode(key);
         }
 
         // Numbers (PADNUM)
-        if (KeyEvent.isKeyNumberPADPressed(key))
-        {
+        if (KeyEvent.isKeyNumberPADPressed(key)) {
             return "" + (key - KeyEvent.DOM_VK_NUMPAD0);
         }
 
         // Numbers
-        if (KeyEvent.isKeyNumberTopPressed(key))
-        {
+        if (KeyEvent.isKeyNumberTopPressed(key)) {
             return String.fromCharCode(key);
-        } else
-        {
+        } else {
             return "";
         }
     }
@@ -348,8 +337,7 @@ export class KeyEvent
      *   @param {number} key The key ID
      *   @returns {string}
      */
-    static getKeyString(key)
-    {
+    static getKeyString(key) {
         let text = KeyEvent.getKeyChar(key);
         if (!text) {
             switch (key) {

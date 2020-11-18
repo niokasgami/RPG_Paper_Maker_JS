@@ -2,164 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Datas/BaseData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Datas/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/PluginManager.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Management/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestBed.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/Anchor2D.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/Rectangle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/BaseSystem.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/BattleMap.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/Characteristic.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/CommonSkillItem.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/DynamicValue.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/Icon.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-camera-properties.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-class-skill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-class.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-common-reaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-cost.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-currency.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-detection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-effect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-hero.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-item.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-keyboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-loot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-monster-action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-monster.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-mountain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-object-3d.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-object-event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-object-reaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-object-state.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-object.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-parameter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-picture.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-progression-table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-property.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-shape.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-skill.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-skybox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-song.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-special-element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-statistic-progression.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-statistic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-tileset.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-title-command.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-troop.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-weapon-armor-kind.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-weapon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemJS/system-window-skin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/system/SystemStructure.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-animations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Animations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-armors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-armors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-battle-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-battle-system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-classes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-classes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-common-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-common-events.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-heroes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-heroes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-items.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-items.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-keyboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-keyboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-monsters.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-monsters.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-pictures.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-pictures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-shapes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-shapes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-skills.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-skills.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-songs.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-songs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-special-elements.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-special-elements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-system.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-tilesets.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-tilesets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-titlescreen-gameover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-titlescreen-gameover.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-troops.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-troops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-videos.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-videos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/datas-weapons.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-weapons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/event-command.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/event-command.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/game-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/game-item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/game-stack.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Management/GameStack.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/graphic-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/graphic-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/graphic-skill-item.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/graphic-skill-item.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/map-object.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/map-object.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/map-properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/map-properties.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-battle-0.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/scene-battle-0.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-battle-1.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/scene-battle-1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-battle-4.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/scene-battle-4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-battle.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/scene-battle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scene/SceneGame.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/scene-map.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/scene-map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-animation-frame-effect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameEffect.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-animation-frame-element.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-animation-frame.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrame.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Animation.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-armor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Armor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-battle-map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-camera-properties.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-characteristic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-class-skill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-class.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-common-reaction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-common-skill-item.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-cost.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-currency.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-detection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-effect.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-hero.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-icon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-item.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-keyboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-lang.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Lang.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-loot.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-monster-action.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-monster.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-mountain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-object-3d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-object-event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-object-reaction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-object-state.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-object.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-parameter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-picture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-play-song.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/PlaySong.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-progression-table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-property.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-shape.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-skill.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-skybox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-song.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-special-element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-statistic-progression.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-statistic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-tileset.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-title-command.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-troop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-value.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-video.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-weapon-armor-kind.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-weapon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/System/system-window-skin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Autotiles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Autotiles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Coordinate2D.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Vector2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Coordinate3D.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Vector3.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Mountains.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Mountains.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Rectangle..ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/TextureSeveral.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/TextureBundle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rpm/Common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rpm/Mathf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Mathf.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rpm/Paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Paths.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/rpm/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Color.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Color.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Animation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Animation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/AnimationFrame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrame.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/AnimationFrameEffect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameEffect.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/AnimationFrameElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameElement.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Armor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Armor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/BaseSystem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/BaseSystem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/BattleMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/BattleMap.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Characteristic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Characteristic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/CommonSkillItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/CommonSkillItem.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/DynamicValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/DynamicValue.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Icon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Icon.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/Lang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Lang.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +42,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.typescriptcompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="ts.external.directory.path" value="C:\Users\nioPC\AppData\Roaming\npm\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -244,6 +99,8 @@
       <workItem from="1605393886318" duration="12345000" />
       <workItem from="1605447209970" duration="6065000" />
       <workItem from="1605641074165" duration="4291000" />
+      <workItem from="1605667091263" duration="3544000" />
+      <workItem from="1605700433882" duration="264000" />
     </task>
     <task id="LOCAL-00001" summary="Added more classes">
       <created>1604696033635</created>
@@ -266,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604866129922</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added more classes">
+      <created>1605667172605</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605667172605</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,18 +145,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605406832955" />
-    <state x="562" y="2" key="CommitChangelistDialog2" timestamp="1604866129015">
+    <state x="562" y="2" key="CommitChangelistDialog2" timestamp="1605667167574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="2" key="CommitChangelistDialog2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604866129015" />
-    <state x="461" y="164" width="1344" height="710" key="SettingsEditor" timestamp="1604696317456">
+    <state x="562" y="2" key="CommitChangelistDialog2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605667167574" />
+    <state x="461" y="164" width="1344" height="710" key="SettingsEditor" timestamp="1605700674041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604696317456" />
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1604865735986">
+    <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605700674041" />
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1605667174860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604865735986" />
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605667174860" />
     <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1604701364203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

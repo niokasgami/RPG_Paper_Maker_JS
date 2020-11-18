@@ -10,24 +10,23 @@
 */
 
 /** @class
-*   Autotiles grouped with the same textures
-*   @property {number} [Autotiles.COUNT_LIST=5] The tiles list sizes
-*   @property {number[]} Autotiles.LIST_A The tiles list A
-*   @property {number[]} Autotiles.LIST_B The tiles list B
-*   @property {number[]} Autotiles.LIST_C The tiles list C
-*   @property {number[]} Autotiles.LIST_D The tiles list D
-*   @property {THREE.Texture} texture The autotiles texture
-*   @property {number} width The texture total width
-*   @property {number} height The texture total height
-*   @property {THREE.Geometry} geometry The autotiles geometry
-*   @property {THREE.Mesh} mesh The autotiles mesh
-*   @property {number} index The faces index (count)
-*/
+ *   Autotiles grouped with the same textures
+ *   @property {number} [Autotiles.COUNT_LIST=5] The tiles list sizes
+ *   @property {number[]} Autotiles.LIST_A The tiles list A
+ *   @property {number[]} Autotiles.LIST_B The tiles list B
+ *   @property {number[]} Autotiles.LIST_C The tiles list C
+ *   @property {number[]} Autotiles.LIST_D The tiles list D
+ *   @property {THREE.Texture} texture The autotiles texture
+ *   @property {number} width The texture total width
+ *   @property {number} height The texture total height
+ *   @property {THREE.Geometry} geometry The autotiles geometry
+ *   @property {THREE.Mesh} mesh The autotiles mesh
+ *   @property {number} index The faces index (count)
+ */
 import THREE from "three";
 import {TextureBundle} from ".";
 
-export class Autotiles
-{
+export class Autotiles {
     static COUNT_LIST = 5;
     static LIST_A = ["A1", "A2", "A3", "A4", "A5"];
     static LIST_B = ["B1", "B2", "B3", "B4", "B5"];
@@ -63,8 +62,7 @@ export class Autotiles
     mesh: THREE.Mesh;
     index: number;
 
-    constructor(texture)
-    {
+    constructor(texture) {
         this.texture = texture;
         this.width = texture.texture.map ? texture.texture.map.image.width : 0;
         this.height = texture.texture.map ? texture.texture.map.image.height : 0;
@@ -75,23 +73,21 @@ export class Autotiles
     }
 
     // -------------------------------------------------------
-    /** Update the geometry of the autotiles according to an autotile and its 
-    *   position
-    *   @param {number[]} position The json position
-    *   @param {Autotile} autotile The autotile to add to geometry
-    */
-    updateGeometry(position, autotile)
-    {
+    /** Update the geometry of the autotiles according to an autotile and its
+     *   position
+     *   @param {number[]} position The json position
+     *   @param {Autotile} autotile The autotile to add to geometry
+     */
+    updateGeometry(position, autotile) {
         return this.width === null || this.height === 0 ? null : autotile
             .updateGeometry(this.geometry, this.texture, position, this.width,
-            this.height, this.index++);
+                this.height, this.index++);
     }
 
     // -------------------------------------------------------
     /** Create a mesh with material and geometry
-    */
-    createMesh()
-    {
+     */
+    createMesh() {
         this.mesh = new THREE.Mesh(this.geometry, this.texture.texture);
     }
 }

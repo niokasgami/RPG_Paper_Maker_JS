@@ -10,36 +10,31 @@
 */
 
 /** @class
-*   An item of the game
-*   @extends CommonSkillItem
-*   @param {Object} [json=undefined] Json object describing the item
-*/
-class SystemItem extends CommonSkillItem
-{
-    constructor(json)
-    {
+ *   An item of the game
+ *   @extends CommonSkillItem
+ *   @param {Object} [json=undefined] Json object describing the item
+ */
+class SystemItem extends CommonSkillItem {
+    constructor(json) {
         super();
-        if (json)
-        {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the item
-    *   @param {Object} json Json object describing the item
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the item
+     */
+    read(json) {
         super.read(json);
     }
 
     // -------------------------------------------------------
     /** Get the item type
-    *   @returns {string}
-    */
-    getType()
-    {
+     *   @returns {string}
+     */
+    getType() {
         return RPM.datasGame.system.itemsTypes[this.type];
     }
 }

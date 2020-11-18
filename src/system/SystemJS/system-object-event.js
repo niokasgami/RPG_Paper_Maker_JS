@@ -10,30 +10,26 @@
 */
 
 /** @class
-*   An event that an object can react on
-*   @property {boolean} isSystem Boolean indicating if it is an event system
-*   @property {number} idEvent ID of the event
-*   @property {SystemParameter[]} parameters All the parameters values
-*   @property {SystemObjectReaction[]} reactions List of all the reactions 
-*   according to states ID
-*   @param {Object} [json=undefined] Json object describing the object event
-*/
-class SystemObjectEvent
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   An event that an object can react on
+ *   @property {boolean} isSystem Boolean indicating if it is an event system
+ *   @property {number} idEvent ID of the event
+ *   @property {SystemParameter[]} parameters All the parameters values
+ *   @property {SystemObjectReaction[]} reactions List of all the reactions
+ *   according to states ID
+ *   @param {Object} [json=undefined] Json object describing the object event
+ */
+class SystemObjectEvent {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the object event
-    *   @param {Object} json Json object describing the object event
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the object event
+     */
+    read(json) {
         this.isSystem = json.sys;
         this.idEvent = json.id;
 
@@ -45,8 +41,7 @@ class SystemObjectEvent
         // Reactions
         let jsonReactions = json.r;
         this.reactions = {};
-        for (let idState in jsonReactions)
-        {
+        for (let idState in jsonReactions) {
             this.reactions[idState] = new SystemObjectReaction(jsonReactions[
                 idState]);
         }
@@ -54,20 +49,16 @@ class SystemObjectEvent
 
     // -------------------------------------------------------
     /** Check if this event is equal to another
-    *   @param {SystemObjectEvent} event The event to compare
-    *   @returns {boolean}
-    */
-    isEqual(event)
-    {
-        if (this.isSystem !== event.isSystem || this.idEvent !== event.idEvent)
-        {
+     *   @param {SystemObjectEvent} event The event to compare
+     *   @returns {boolean}
+     */
+    isEqual(event) {
+        if (this.isSystem !== event.isSystem || this.idEvent !== event.idEvent) {
             return false;
         }
 
-        for (let i = 1, l = this.parameters.length; i < l; i++)
-        {
-            if (!this.parameters[i].isEqual(event.parameters[i]))
-            {
+        for (let i = 1, l = this.parameters.length; i < l; i++) {
+            if (!this.parameters[i].isEqual(event.parameters[i])) {
                 return false;
             }
         }
@@ -76,12 +67,10 @@ class SystemObjectEvent
 
     // -------------------------------------------------------
     /** Add reactions to the event
-    *   @param {Object} reactions The reactions to add
-    */
-    addReactions(reactions)
-    {
-        for (let idState in reactions)
-        {
+     *   @param {Object} reactions The reactions to add
+     */
+    addReactions(reactions) {
+        for (let idState in reactions) {
             this.reactions[idState] = reactions[idState];
         }
     }

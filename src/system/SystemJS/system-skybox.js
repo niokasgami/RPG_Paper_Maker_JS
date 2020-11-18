@@ -10,31 +10,27 @@
 */
 
 /** @class
-*   A skybox of the game
-*   @property {number} front The front picture ID
-*   @property {number} back The back picture ID
-*   @property {number} top The top picture ID
-*   @property {number} bot The bot picture ID
-*   @property {number} left The left picture ID
-*   @property {number} right The right picture ID
-*   @param {Object} [json=undefined] Json object describing the skybox
-*/
-class SystemSkybox
-{
-    constructor(json)
-    {
-        if (json)
-        {
+ *   A skybox of the game
+ *   @property {number} front The front picture ID
+ *   @property {number} back The back picture ID
+ *   @property {number} top The top picture ID
+ *   @property {number} bot The bot picture ID
+ *   @property {number} left The left picture ID
+ *   @property {number} right The right picture ID
+ *   @param {Object} [json=undefined] Json object describing the skybox
+ */
+class SystemSkybox {
+    constructor(json) {
+        if (json) {
             this.read(json);
         }
     }
 
     // -------------------------------------------------------
     /** Read the JSON associated to the skybox
-    *   @param {Object} json Json object describing the skybox
-    */
-    read(json)
-    {
+     *   @param {Object} json Json object describing the skybox
+     */
+    read(json) {
         this.front = RPM.defaultValue(json.fid, 1);
         this.back = RPM.defaultValue(json.bid, 1);
         this.top = RPM.defaultValue(json.tid, 1);
@@ -42,32 +38,43 @@ class SystemSkybox
         this.left = RPM.defaultValue(json.lid, 1);
         this.right = RPM.defaultValue(json.rid, 1);
     }
-    
+
     // -------------------------------------------------------
     /** Create the textures for the background
-    *   @returns {THREE.MeshBasicMaterial[]} 
-    */
-    createTextures = function() 
-    {
+     *   @returns {THREE.MeshBasicMaterial[]}
+     */
+    createTextures = function () {
         return [
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.left).getPath()), { flipY: true, 
-                flipX: true }),
+            (PictureKind.Skyboxes, this.left).getPath()), {
+                flipY: true,
+                flipX: true
+            }),
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.right).getPath()), { flipY: true, 
-                flipX: true }),
+            (PictureKind.Skyboxes, this.right).getPath()), {
+                flipY: true,
+                flipX: true
+            }),
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.top).getPath()), { flipY: true, 
-                flipX: true }),
+            (PictureKind.Skyboxes, this.top).getPath()), {
+                flipY: true,
+                flipX: true
+            }),
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.bot).getPath()), { flipY: true, 
-                    flipX: true }),
+            (PictureKind.Skyboxes, this.bot).getPath()), {
+                flipY: true,
+                flipX: true
+            }),
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.front).getPath()), { flipY: true, 
-                    flipX: true }),
+            (PictureKind.Skyboxes, this.front).getPath()), {
+                flipY: true,
+                flipX: true
+            }),
             RPM.createMaterial(RPM.textureLoader.load(RPM.datasGame.pictures.get
-                (PictureKind.Skyboxes, this.back).getPath()), { flipY: true, 
-                flipX: true })
+            (PictureKind.Skyboxes, this.back).getPath()), {
+                flipY: true,
+                flipX: true
+            })
         ];
     }
 }

@@ -10,28 +10,24 @@
 */
 
 /** @class
-*   All the songs datas
-*   @property {SystemSong[]} list List of all the songs of the game
-*   according to ID and SongKind
-*/
-class DatasSongs
-{
-    constructor()
-    {
+ *   All the songs datas
+ *   @property {SystemSong[]} list List of all the songs of the game
+ *   according to ID and SongKind
+ */
+class DatasSongs {
+    constructor() {
 
     }
 
     // -------------------------------------------------------
     /** Read the JSON file associated to songs
-    */
-    async read()
-    {
+     */
+    async read() {
         let json = (await RPM.parseFileJSON(RPM.FILE_SONGS_DATAS)).list;
         let l = RPM.countFields(SongKind) - 1;
         this.list = new Array(l);
         let i, j, m, n, jsonHash, k, jsonList, jsonSong, id, list, song;
-        for (i = 0; i < l; i++)
-        {
+        for (i = 0; i < l; i++) {
             jsonHash = json[i];
             k = jsonHash.k;
             jsonList = jsonHash.v;
@@ -39,31 +35,25 @@ class DatasSongs
             // Get the max ID
             m = jsonList.length;
             n = 0;
-            for (j = 0; j < m; j++)
-            {
+            for (j = 0; j < m; j++) {
                 jsonSong = jsonList[j];
                 id = jsonSong.id;
-                if (id > n)
-                {
+                if (id > n) {
                     n = id;
                 }
             }
 
             // Fill the songs list
             list = new Array(n + 1);
-            for (j = 0; j < n + 1; j++)
-            {
+            for (j = 0; j < n + 1; j++) {
                 jsonSong = jsonList[j];
-                if (jsonSong)
-                {
+                if (jsonSong) {
                     id = jsonSong.id;
                     song = new SystemSong(jsonSong, k);
-                    if (k !== SongKind.Sound)
-                    {
+                    if (k !== SongKind.Sound) {
                         song.load();
                     }
-                    if (id === -1)
-                    {
+                    if (id === -1) {
                         id = 0;
                     }
                     list[id] = song;
@@ -75,12 +65,11 @@ class DatasSongs
 
     // -------------------------------------------------------
     /** Get the corresponding song
-    *   @param {SongKind} kind The song kind
-    *   @param {number} id The song id
-    *   @returns {SystemSong}
-    */
-    get(kind, id)
-    {
+     *   @param {SongKind} kind The song kind
+     *   @param {number} id The song id
+     *   @returns {SystemSong}
+     */
+    get(kind, id) {
         return kind === SongKind.None ? new SystemSong() : this.list[kind][id];
     }
 }

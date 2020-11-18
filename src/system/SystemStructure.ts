@@ -4,5 +4,6 @@
  */
 export interface SystemStructure {
     read(json): void;
+
     assignData(): void;
 }
