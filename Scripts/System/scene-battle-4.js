@@ -228,7 +228,7 @@ SceneBattle.prototype.playMapMusic = function()
 SceneBattle.prototype.prepareEndTransition = function()
 {
     this.transitionEnded = false;
-    RPM.songsManager.initializeProgressionMusic(SystemPlaySong
+    RPM.songsManager.initializeProgressionMusic(PlaySong
         .currentPlayingMusic.volume, 0, 0, SceneBattle.TIME_LINEAR_MUSIC_END);
     this.subStep = 3;
     this.time = new Date().getTime();

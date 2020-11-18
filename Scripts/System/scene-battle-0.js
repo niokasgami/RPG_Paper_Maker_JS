@@ -151,7 +151,7 @@ SceneBattle.prototype.initializeWindowCommands = function()
             .battleCommandsOrder[i]];
         listContent[i] = new GraphicTextIcon(skill.name(), skill.pictureID);
         listContent[i].skill = skill;
-        listCallbacks[i] = SystemCommonSkillItem.prototype.useCommand;
+        listCallbacks[i] = CommonSkillItem.prototype.useCommand;
     }
     this.windowChoicesBattleCommands = new WindowChoices(RPM.HUGE_SPACE, 
         RPM.SCREEN_Y - RPM.HUGE_SPACE - (l * RPM.SMALL_SLOT_HEIGHT), 
@@ -223,7 +223,7 @@ SceneBattle.prototype.initializeWindowsEnd = async function()
 */
 SceneBattle.prototype.initializeMusics = function()
 {
-    SceneBattle.musicMap = SystemPlaySong.currentPlayingMusic;
+    SceneBattle.musicMap = PlaySong.currentPlayingMusic;
     let song = RPM.songsManager.currentSong[SongKind.Music];
     SceneBattle.musicMapTime = song === null ? 0 : song.seek() / RPM
         .ONE_SECOND_MILLI;

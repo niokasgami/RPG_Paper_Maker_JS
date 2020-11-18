@@ -248,7 +248,7 @@ class EventCommandShowText extends EventCommand
         let iterator = {
             i: 0
         }
-        this.interlocutor = SystemValue.createValueCommand(command, iterator);
+        this.interlocutor = DynamicValue.createValueCommand(command, iterator);
         this.facesetID = command[iterator.i++];
         this.message = command[iterator.i++];
         this.windowMain = new WindowBox(0, 0, 0, 0,
@@ -414,20 +414,20 @@ class EventCommandChangeVariables extends EventCommand
         switch (this.valueKind)
         {
         case 0: // Number
-            this.valueNumber = SystemValue.createValueCommand(command, iterator);
+            this.valueNumber = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1: // Random number
-            this.valueRandomA = SystemValue.createValueCommand(command, iterator);
-            this.valueRandomB = SystemValue.createValueCommand(command, iterator);
+            this.valueRandomA = DynamicValue.createValueCommand(command, iterator);
+            this.valueRandomB = DynamicValue.createValueCommand(command, iterator);
             break;
         case 2: // Message
-            this.valueMessage = SystemValue.createValueCommand(command, iterator);
+            this.valueMessage = DynamicValue.createValueCommand(command, iterator);
             break;
         case 3: // Switch
-            this.valueSwitch = SystemValue.createValueCommand(command, iterator);
+            this.valueSwitch = DynamicValue.createValueCommand(command, iterator);
             break;
         case 4: // Map object characteristic
-            this.valueMapObject = SystemValue.createValueCommand(command, iterator);
+            this.valueMapObject = DynamicValue.createValueCommand(command, iterator);
             this.valueMapObjectChar = command[iterator.i++];
             break;
         }
@@ -767,10 +767,10 @@ class EventCommandIf extends EventCommand
         switch (this.kind)
         {
         case 0: // Variable / Param / Prop
-            this.variableParamProp = SystemValue.createValueCommand(command, 
+            this.variableParamProp = DynamicValue.createValueCommand(command,
                 iterator);
             this.variableParamPropOperationKind = command[iterator.i++];
-            this.variableParamPropValue = SystemValue.createValueCommand(command
+            this.variableParamPropValue = DynamicValue.createValueCommand(command
                 , iterator);
             break;
         case 1: // Heroes
@@ -778,7 +778,7 @@ class EventCommandIf extends EventCommand
             if (this.heroesSelection === ConditionHeroesKind
                 .TheHeroeWithInstanceID)
             {
-                this.heroInstanceID = SystemValue.createValueCommand(command, 
+                this.heroInstanceID = DynamicValue.createValueCommand(command,
                     iterator);
             }
             this.heroesInTeam = RPM.numToBool(command[iterator.i++]);
@@ -790,14 +790,14 @@ class EventCommandIf extends EventCommand
             switch (this.heroesKind)
             {
             case 0:
-                this.heroesNamed = SystemValue.createValueCommand(command, 
+                this.heroesNamed = DynamicValue.createValueCommand(command,
                     iterator);
                 break;
             case 1:
                 this.heroesInTeamValue = command[iterator.i++];
                 break;
             case 2:
-                this.heroesSkillID = SystemValue.createValueCommand(command, 
+                this.heroesSkillID = DynamicValue.createValueCommand(command,
                     iterator);
                 break;
             case 3:
@@ -805,57 +805,57 @@ class EventCommandIf extends EventCommand
                 switch (this.heroesEquipedKind)
                 {
                 case 0:
-                    this.heroesEquipedWeaponID = SystemValue.createValueCommand(
+                    this.heroesEquipedWeaponID = DynamicValue.createValueCommand(
                         command, iterator);
                     break;
                 case 1:
-                    this.heroesEquipedArmorID = SystemValue.createValueCommand(
+                    this.heroesEquipedArmorID = DynamicValue.createValueCommand(
                         command, iterator);
                     break;
                 }
                 break;
             case 4:
-                this.heroesStatusID = SystemValue.createValueCommand(command, 
+                this.heroesStatusID = DynamicValue.createValueCommand(command,
                     iterator);
                 break;
             case 5:
-                this.heroesStatisticID = SystemValue.createValueCommand(command, 
+                this.heroesStatisticID = DynamicValue.createValueCommand(command,
                     iterator);
                 this.heroesStatisticOperation = command[iterator.i++];
-                this.heroesStatisticValue = SystemValue.createValueCommand(
+                this.heroesStatisticValue = DynamicValue.createValueCommand(
                     command, iterator);
                 break;
             }
             break;
         case 2:
-            this.currencyID = SystemValue.createValueCommand(command, iterator);
+            this.currencyID = DynamicValue.createValueCommand(command, iterator);
             this.operationCurrency = command[iterator.i++];
-            this.currencyValue = SystemValue.createValueCommand(command, 
+            this.currencyValue = DynamicValue.createValueCommand(command,
                 iterator);
             break;
         case 3:
-            this.itemID = SystemValue.createValueCommand(command, iterator);
+            this.itemID = DynamicValue.createValueCommand(command, iterator);
             this.operationItem = command[iterator.i++];
-            this.itemValue = SystemValue.createValueCommand(command, iterator);
+            this.itemValue = DynamicValue.createValueCommand(command, iterator);
             break;
         case 4:
-            this.weaponID = SystemValue.createValueCommand(command, iterator);
+            this.weaponID = DynamicValue.createValueCommand(command, iterator);
             this.operationWeapon = command[iterator.i++];
-            this.weaponValue = SystemValue.createValueCommand(command, iterator);
+            this.weaponValue = DynamicValue.createValueCommand(command, iterator);
             this.weaponEquiped = RPM.numToBool(command[iterator.i++]);
             break;
         case 5:
-            this.armorID = SystemValue.createValueCommand(command, iterator);
+            this.armorID = DynamicValue.createValueCommand(command, iterator);
             this.operationArmor = command[iterator.i++];
-            this.armorValue = SystemValue.createValueCommand(command, iterator);
+            this.armorValue = DynamicValue.createValueCommand(command, iterator);
             this.armorEquiped = RPM.numToBool(command[iterator.i++]);
             break;
         case 6:
-            this.keyID = SystemValue.createValueCommand(command, iterator);
-            this.keyValue = SystemValue.createValueCommand(command, iterator);
+            this.keyID = DynamicValue.createValueCommand(command, iterator);
+            this.keyValue = DynamicValue.createValueCommand(command, iterator);
             break;
         case 7:
-            this.script = SystemValue.createValueCommand(command, iterator);
+            this.script = DynamicValue.createValueCommand(command, iterator);
             break;
         }
     }
@@ -1361,9 +1361,9 @@ class EventCommandModifyInventory extends EventCommand
             i: 0
         }
         this.itemKind = command[iterator.i++];
-        this.itemID = SystemValue.createValueCommand(command, iterator);
+        this.itemID = DynamicValue.createValueCommand(command, iterator);
         this.operation = command[iterator.i++];
-        this.value = SystemValue.createValueCommand(command, iterator);
+        this.value = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -1436,7 +1436,7 @@ class EventCommandModifyTeam extends EventCommand
         switch (this.addingKind)
         {
         case 0: // If create new instance
-            this.instanceLevel = SystemValue.createValueCommand(command, 
+            this.instanceLevel = DynamicValue.createValueCommand(command,
                 iterator);
             this.instanceTeam = command[iterator.i++];
             this.stockVariableID = command[iterator.i++];
@@ -1445,7 +1445,7 @@ class EventCommandModifyTeam extends EventCommand
             break;
         case 1:
             this.addRemoveKind = command[iterator.i++];
-            this.addRemoveID = SystemValue.createValueCommand(command, iterator);
+            this.addRemoveID = DynamicValue.createValueCommand(command, iterator);
             this.addRemoveTeam = this.command[iterator.i++];
             break;
         }
@@ -1600,7 +1600,7 @@ class EventCommandStartBattle extends EventCommand
         let type = command[iterator.i++];
         switch(type){
         case 0: // Existing troop ID
-            this.troopID = SystemValue.createValueCommand(command, iterator);
+            this.troopID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1: // If random troop in map properties
             // TODO
@@ -1611,21 +1611,21 @@ class EventCommandStartBattle extends EventCommand
         switch(type)
         {
         case 0: // Existing battle map ID
-            this.battleMapID = SystemValue.createValueCommand(command, iterator);
+            this.battleMapID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1: // Select
-            this.mapID = SystemValue.createNumber(command[iterator.i++]);
-            this.x = SystemValue.createNumber(command[iterator.i++]);
-            this.y = SystemValue.createNumber(command[iterator.i++]);
-            this.yPlus = SystemValue.createNumber(command[iterator.i++]);
-            this.z = SystemValue.createNumber(command[iterator.i++]);
+            this.mapID = DynamicValue.createNumber(command[iterator.i++]);
+            this.x = DynamicValue.createNumber(command[iterator.i++]);
+            this.y = DynamicValue.createNumber(command[iterator.i++]);
+            this.yPlus = DynamicValue.createNumber(command[iterator.i++]);
+            this.z = DynamicValue.createNumber(command[iterator.i++]);
             break;
         case 2: // Numbers
-            this.mapID = SystemValue.createValueCommand(command, iterator);
-            this.x = SystemValue.createValueCommand(command, iterator);
-            this.y = SystemValue.createValueCommand(command, iterator);
-            this.yPlus = SystemValue.createValueCommand(command, iterator);
-            this.z = SystemValue.createValueCommand(command, iterator);
+            this.mapID = DynamicValue.createValueCommand(command, iterator);
+            this.x = DynamicValue.createValueCommand(command, iterator);
+            this.y = DynamicValue.createValueCommand(command, iterator);
+            this.yPlus = DynamicValue.createValueCommand(command, iterator);
+            this.z = DynamicValue.createValueCommand(command, iterator);
             break;
         }
 
@@ -1633,13 +1633,13 @@ class EventCommandStartBattle extends EventCommand
         this.transitionStart = command[iterator.i++];
         if (RPM.numToBool(this.transitionStart))
         {
-            this.transitionStartColor = SystemValue.createValueCommand(command, 
+            this.transitionStartColor = DynamicValue.createValueCommand(command,
                 iterator);
         }
         this.transitionEnd = command[iterator.i++];
         if (RPM.numToBool(this.transitionEnd))
         {
-            this.transitionEndColor = SystemValue.createValueCommand(command, 
+            this.transitionEndColor = DynamicValue.createValueCommand(command,
                 iterator);
         }
         this.isDirectNode = false;
@@ -1669,7 +1669,7 @@ class EventCommandStartBattle extends EventCommand
         // Initializing battle
         if (currentState.sceneBattle === null)
         {
-            let battleMap = (this.battleMapID === null) ? SystemBattleMap.create
+            let battleMap = (this.battleMapID === null) ? BattleMap.create
                 (this.mapID.getValue(), [this.x.getValue(), this.y.getValue(), 
                 this.yPlus.getValue(), this.z.getValue()]) : RPM.datasGame
                 .battleSystem.battleMaps[this.battleMapID.getValue()];
@@ -1805,9 +1805,9 @@ class EventCommandChangeState extends EventCommand
         let iterator = {
             i: 0
         }
-        this.mapID = SystemValue.createValueCommand(command, iterator);
-        this.objectID = SystemValue.createValueCommand(command, iterator);
-        this.idState = SystemValue.createValueCommand(command, iterator);
+        this.mapID = DynamicValue.createValueCommand(command, iterator);
+        this.objectID = DynamicValue.createValueCommand(command, iterator);
+        this.idState = DynamicValue.createValueCommand(command, iterator);
         this.operationKind = command[iterator.i++];
     }
 
@@ -2066,11 +2066,11 @@ class EventCommandSendEvent extends EventCommand
         switch (this.targetKind)
         {
         case 1:
-            this.targetID = SystemValue.createValueCommand(command, iterator);
+            this.targetID = DynamicValue.createValueCommand(command, iterator);
             this.senderNoReceiver = RPM.numToBool(command[iterator.i++]);
             break;
         case 2:
-            this.targetID = SystemValue.createValueCommand(command, iterator);
+            this.targetID = DynamicValue.createValueCommand(command, iterator);
             break;
         }
         this.isSystem = !RPM.numToBool(command[iterator.i++]);
@@ -2090,10 +2090,10 @@ class EventCommandSendEvent extends EventCommand
             {
                 // If default value
                 parameter = k === PrimitiveValueKind.Default ? parameters[
-                    paramID].value : SystemValue.create(k, null);
+                    paramID].value : DynamicValue.create(k, null);
             } else
             {
-                parameter = SystemValue.create(k, command[iterator.i++]);
+                parameter = DynamicValue.create(k, command[iterator.i++]);
             }
             this.parameters[paramID] = parameter;
         }
@@ -2328,7 +2328,7 @@ class EventCommandTeleportObject extends EventCommand
         }
 
         // Object ID
-        this.objectID = SystemValue.createValueCommand(command, iterator);
+        this.objectID = DynamicValue.createValueCommand(command, iterator);
 
         // Position
         this.objectIDPosition = null;
@@ -2336,21 +2336,21 @@ class EventCommandTeleportObject extends EventCommand
         switch (command[iterator.i++])
         {
         case 0:
-            this.mapID = SystemValue.createNumber(command[iterator.i++]);
-            this.x = SystemValue.createNumber(command[iterator.i++]);
-            this.y = SystemValue.createNumber(command[iterator.i++]);
-            this.yPlus = SystemValue.createNumber(command[iterator.i++]);
-            this.z = SystemValue.createNumber(command[iterator.i++]);
+            this.mapID = DynamicValue.createNumber(command[iterator.i++]);
+            this.x = DynamicValue.createNumber(command[iterator.i++]);
+            this.y = DynamicValue.createNumber(command[iterator.i++]);
+            this.yPlus = DynamicValue.createNumber(command[iterator.i++]);
+            this.z = DynamicValue.createNumber(command[iterator.i++]);
             break;
         case 1:
-            this.mapID = SystemValue.createValueCommand(command, iterator);
-            this.x = SystemValue.createValueCommand(command, iterator);
-            this.y = SystemValue.createValueCommand(command, iterator);
-            this.yPlus = SystemValue.createValueCommand(command, iterator);
-            this.z = SystemValue.createValueCommand(command, iterator);
+            this.mapID = DynamicValue.createValueCommand(command, iterator);
+            this.x = DynamicValue.createValueCommand(command, iterator);
+            this.y = DynamicValue.createValueCommand(command, iterator);
+            this.yPlus = DynamicValue.createValueCommand(command, iterator);
+            this.z = DynamicValue.createValueCommand(command, iterator);
             break;
         case 2:
-            this.objectIDPosition = SystemValue.createValueCommand(command, iterator);
+            this.objectIDPosition = DynamicValue.createValueCommand(command, iterator);
             break;
         }
 
@@ -2477,7 +2477,7 @@ class EventCommandMoveObject extends EventCommand
         let l = command.length;
 
         // Object ID
-        this.objectID = SystemValue.createValueCommand(command, iterator);
+        this.objectID = DynamicValue.createValueCommand(command, iterator);
 
         // Options
         this.isIgnore = RPM.numToBool(command[iterator.i++]);
@@ -2543,7 +2543,7 @@ class EventCommandMoveObject extends EventCommand
             if (this.kind === CommandMoveKind.ChangeGraphics)
             {
                 permanent = RPM.numToBool(command[iterator.i++]);
-                let pictureID = SystemValue.createValueCommand(command, iterator);
+                let pictureID = DynamicValue.createValueCommand(command, iterator);
                 let indexX = command[iterator.i++];
                 let indexY = command[iterator.i++];
                 let width = command[iterator.i++];
@@ -3098,7 +3098,7 @@ class EventCommandWait extends EventCommand
         let iterator = {
             i: 0
         }
-        this.milliseconds = SystemValue.createValueCommand(command, iterator);
+        this.milliseconds = DynamicValue.createValueCommand(command, iterator);
         this.isDirectNode = false;
     }
 
@@ -3170,7 +3170,7 @@ class EventCommandMoveCamera extends EventCommand
             this.targetID = null;
         } else
         {
-            this.targetID = SystemValue.createValueCommand(command, iterator);
+            this.targetID = DynamicValue.createValueCommand(command, iterator);
         }
 
         // Operation
@@ -3179,24 +3179,24 @@ class EventCommandMoveCamera extends EventCommand
         // Move
         this.moveTargetOffset = RPM.numToBool(command[iterator.i++]);
         this.cameraOrientation = RPM.numToBool(command[iterator.i++]);
-        this.x = SystemValue.createValueCommand(command, iterator);
+        this.x = DynamicValue.createValueCommand(command, iterator);
         this.xSquare = !RPM.numToBool(command[iterator.i++]);
-        this.y = SystemValue.createValueCommand(command, iterator);
+        this.y = DynamicValue.createValueCommand(command, iterator);
         this.ySquare = !RPM.numToBool(command[iterator.i++]);
-        this.z = SystemValue.createValueCommand(command, iterator);
+        this.z = DynamicValue.createValueCommand(command, iterator);
         this.zSquare = !RPM.numToBool(command[iterator.i++]);
 
         // Rotation
         this.rotationTargetOffset = RPM.numToBool(command[iterator.i++]);
-        this.h = SystemValue.createValueCommand(command, iterator);
-        this.v = SystemValue.createValueCommand(command, iterator);
+        this.h = DynamicValue.createValueCommand(command, iterator);
+        this.v = DynamicValue.createValueCommand(command, iterator);
 
         // Zoom
-        this.distance = SystemValue.createValueCommand(command, iterator);
+        this.distance = DynamicValue.createValueCommand(command, iterator);
 
         // Options
         this.isWaitEnd = RPM.numToBool(command[iterator.i++]);
-        this.time = SystemValue.createValueCommand(command, iterator);
+        this.time = DynamicValue.createValueCommand(command, iterator);
 
         this.isDirectNode = false;
         this.parallel = !this.isWaitEnd;
@@ -3393,17 +3393,17 @@ class EventCommandPlayMusic extends EventCommand
             i: 0
         }
         let isIDprimitive = RPM.numToBool(command[iterator.i++]);
-        let valueID = SystemValue.createValueCommand(command, iterator);
-        let id = SystemValue.createNumber(command[iterator.i++]);
+        let valueID = DynamicValue.createValueCommand(command, iterator);
+        let id = DynamicValue.createNumber(command[iterator.i++]);
         let songID = isIDprimitive ? valueID : id;
-        let volume = SystemValue.createValueCommand(command, iterator);
+        let volume = DynamicValue.createValueCommand(command, iterator);
         let isStart = RPM.numToBool(command[iterator.i++]);
-        let start = SystemValue.createValueCommand(command, iterator);
+        let start = DynamicValue.createValueCommand(command, iterator);
         start = isStart ? start : null;
         let isEnd = RPM.numToBool(command[iterator.i++]);
-        let end = SystemValue.createValueCommand(command, iterator);
+        let end = DynamicValue.createValueCommand(command, iterator);
         end = isEnd ? end : null;
-        that.song = new SystemPlaySong(kind);
+        that.song = new PlaySong(kind);
         that.song.updateValues(songID, volume, isStart, start, isEnd, end);
     }
 
@@ -3463,7 +3463,7 @@ class EventCommandStopMusic extends EventCommand
         let iterator = {
             i: 0
         }
-        that.seconds = SystemValue.createValueCommand(command, iterator);
+        that.seconds = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -3710,9 +3710,9 @@ class EventCommandChangeProperty extends EventCommand
         let iterator = {
             i: 0
         }
-        this.propertyID = SystemValue.createValueCommand(command, iterator);
+        this.propertyID = DynamicValue.createValueCommand(command, iterator);
         this.operationKind = command[iterator.i++];
-        this.newValue = SystemValue.createValueCommand(command, iterator);
+        this.newValue = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -3787,7 +3787,7 @@ class EventCommandDisplayChoice extends EventCommand
         let iterator = {
             i: 0
         };
-        this.cancelAutoIndex = SystemValue.createValueCommand(command, iterator);
+        this.cancelAutoIndex = DynamicValue.createValueCommand(command, iterator);
         this.choices = [];
         let l = command.length;
         let lang = null;
@@ -3802,7 +3802,7 @@ class EventCommandDisplayChoice extends EventCommand
                 {
                     this.choices.push(lang.name());
                 }
-                lang = new SystemLang();
+                lang = new Lang();
                 iterator.i++;
             }
             lang.getCommand(command, iterator);
@@ -3999,8 +3999,8 @@ class EventCommandScript extends EventCommand
             i: 0
         }
         this.isDynamic = RPM.numToBool(command[iterator.i++]);
-        this.script = this.isDynamic ? SystemValue.createValueCommand(command, 
-            iterator) : SystemValue.createMessage(RPM.numToString(command[
+        this.script = this.isDynamic ? DynamicValue.createValueCommand(command,
+            iterator) : DynamicValue.createMessage(RPM.numToString(command[
             iterator.i]));
     }
 
@@ -4049,9 +4049,9 @@ class EventCommandDisplayAPicture extends EventCommand
         let iterator = {
             i: 0
         }
-        this.pictureID = SystemValue.createValueCommand(command, iterator);
+        this.pictureID = DynamicValue.createValueCommand(command, iterator);
         iterator.i++;
-        this.index = SystemValue.createValueCommand(command, iterator);
+        this.index = DynamicValue.createValueCommand(command, iterator);
         this.centered = RPM.numToBool(command[iterator.i++]);
         if (this.centered)
         {
@@ -4061,11 +4061,11 @@ class EventCommandDisplayAPicture extends EventCommand
             this.originX = 0;
             this.originY = 0;
         }
-        this.x = SystemValue.createValueCommand(command, iterator);
-        this.y = SystemValue.createValueCommand(command, iterator);
-        this.zoom = SystemValue.createValueCommand(command, iterator);
-        this.opacity = SystemValue.createValueCommand(command, iterator);
-        this.angle = SystemValue.createValueCommand(command, iterator);
+        this.x = DynamicValue.createValueCommand(command, iterator);
+        this.y = DynamicValue.createValueCommand(command, iterator);
+        this.zoom = DynamicValue.createValueCommand(command, iterator);
+        this.opacity = DynamicValue.createValueCommand(command, iterator);
+        this.angle = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -4142,33 +4142,33 @@ class EventCommandSetMoveTurnAPicture extends EventCommand
         let iterator = {
             i: 0
         }
-        this.index = SystemValue.createValueCommand(command, iterator);
+        this.index = DynamicValue.createValueCommand(command, iterator);
         if (RPM.numToBool(command[iterator.i++]))
         {
             iterator.i++; 
-            this.pictureID = SystemValue.createValueCommand(command, iterator);
+            this.pictureID = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.zoom = SystemValue.createValueCommand(command, iterator);
+            this.zoom = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.opacity = SystemValue.createValueCommand(command, iterator);
+            this.opacity = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.x = SystemValue.createValueCommand(command, iterator);
+            this.x = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.y = SystemValue.createValueCommand(command, iterator);
+            this.y = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.angle = SystemValue.createValueCommand(command, iterator);
+            this.angle = DynamicValue.createValueCommand(command, iterator);
         }
-        this.time = SystemValue.createValueCommand(command, iterator);
+        this.time = DynamicValue.createValueCommand(command, iterator);
         this.waitEnd = RPM.numToBool(command[iterator.i++]);
         this.isDirectNode = true;
         this.parallel = !this.waitEnd;
@@ -4339,7 +4339,7 @@ class EventCommandRemoveAPicture extends EventCommand
         let iterator = {
             i: 0
         }
-        this.index = SystemValue.createValueCommand(command, iterator);
+        this.index = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -4405,39 +4405,39 @@ class EventCommandSetDialogBoxOptions extends EventCommand
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.windowSkinID = SystemValue.createValueCommand(command, iterator);
+            this.windowSkinID = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.x = SystemValue.createValueCommand(command, iterator);
+            this.x = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.y = SystemValue.createValueCommand(command, iterator);
+            this.y = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.w = SystemValue.createValueCommand(command, iterator);
+            this.w = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.h = SystemValue.createValueCommand(command, iterator);
+            this.h = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.pLeft = SystemValue.createValueCommand(command, iterator);
+            this.pLeft = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.pTop = SystemValue.createValueCommand(command, iterator);
+            this.pTop = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.pRight = SystemValue.createValueCommand(command, iterator);
+            this.pRight = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.pBottom = SystemValue.createValueCommand(command, iterator);
+            this.pBottom = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
@@ -4445,11 +4445,11 @@ class EventCommandSetDialogBoxOptions extends EventCommand
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.fX = SystemValue.createValueCommand(command, iterator);
+            this.fX = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.fY = SystemValue.createValueCommand(command, iterator);
+            this.fY = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
@@ -4457,23 +4457,23 @@ class EventCommandSetDialogBoxOptions extends EventCommand
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.tcText = SystemValue.createValueCommand(command, iterator);
+            this.tcText = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.tcOutline = SystemValue.createValueCommand(command, iterator);
+            this.tcOutline = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.tcBackground = SystemValue.createValueCommand(command, iterator);
+            this.tcBackground = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.tSize = SystemValue.createValueCommand(command, iterator);
+            this.tSize = DynamicValue.createValueCommand(command, iterator);
         }
         if (RPM.numToBool(command[iterator.i++]))
         {
-            this.tFont = SystemValue.createValueCommand(command, iterator);
+            this.tFont = DynamicValue.createValueCommand(command, iterator);
         }
     }
 
@@ -4632,17 +4632,17 @@ class EventCommandChangeScreenTone extends EventCommand
         let iterator = {
             i: 0
         };
-        this.r = SystemValue.createValueCommand(command, iterator);
-        this.g = SystemValue.createValueCommand(command, iterator);
-        this.b = SystemValue.createValueCommand(command, iterator);
-        this.grey = SystemValue.createValueCommand(command, iterator);
+        this.r = DynamicValue.createValueCommand(command, iterator);
+        this.g = DynamicValue.createValueCommand(command, iterator);
+        this.b = DynamicValue.createValueCommand(command, iterator);
+        this.grey = DynamicValue.createValueCommand(command, iterator);
         if (RPM.numToBool(command[iterator.i++]))
         {
             this.subColor = RPM.numToBool(command[iterator.i++]);
-            this.colorID = SystemValue.createValueCommand(command, iterator);
+            this.colorID = DynamicValue.createValueCommand(command, iterator);
         }
         this.waitEnd = RPM.numToBool(command[iterator.i++]);
-        this.time = SystemValue.createValueCommand(command, iterator);
+        this.time = DynamicValue.createValueCommand(command, iterator);
         this.isDirectNode = true;
         this.parallel = !this.waitEnd;
     }
@@ -4743,7 +4743,7 @@ class EventCommandRemoveObjectFromMap extends EventCommand
         let iterator = {
             i: 0
         };
-        this.objectID = SystemValue.createValueCommand(command, iterator);
+        this.objectID = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -4863,7 +4863,7 @@ class EventCommandAllowForbidSaves extends EventCommand
         let iterator = {
             i: 0
         };
-        this.allow = SystemValue.createValueCommand(command, iterator);
+        this.allow = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -4901,7 +4901,7 @@ class EventCommandAllowForbidMainMenu extends EventCommand
         let iterator = {
             i: 0
         };
-        this.allow = SystemValue.createValueCommand(command, iterator);
+        this.allow = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -4947,7 +4947,7 @@ class EventCommandCallACommonReaction extends EventCommand
         while (iterator.i < l)
         {
             paramID = command[iterator.i++];
-            this.parameters[paramID] = SystemValue.createValueCommand(command, 
+            this.parameters[paramID] = DynamicValue.createValueCommand(command,
                 iterator);
         }
     }
@@ -4987,7 +4987,7 @@ class EventCommandCallACommonReaction extends EventCommand
                 if (k <= PrimitiveValueKind.Default)
                 {
                     parameter = k === PrimitiveValueKind.Default ? v : 
-                        SystemValue.create(k, null);
+                        DynamicValue.create(k, null);
                 }
                 this.parameters[id] = parameter;
             }
@@ -5104,7 +5104,7 @@ class EventCommandLabel extends EventCommand
         let iterator = {
             i: 0
         }
-        this.label = SystemValue.createValueCommand(command, iterator);
+        this.label = DynamicValue.createValueCommand(command, iterator);
     }
 }
 
@@ -5129,7 +5129,7 @@ class EventCommandJumpToLabel extends EventCommand
         let iterator = {
             i: 0
         }
-        this.label = SystemValue.createValueCommand(command, iterator);
+        this.label = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -5195,14 +5195,14 @@ class EventCommandChangeAStatistic extends EventCommand
         let iterator = {
             i: 0
         }
-        this.statisticID = SystemValue.createValueCommand(command, iterator);
+        this.statisticID = DynamicValue.createValueCommand(command, iterator);
 
         // Selection
         this.selection = command[iterator.i++];
         switch (this.selection)
         {
         case 0:
-            this.heInstanceID = SystemValue.createValueCommand(command, iterator);
+            this.heInstanceID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1:
             this.groupIndex = command[iterator.i++];
@@ -5217,10 +5217,10 @@ class EventCommandChangeAStatistic extends EventCommand
         switch (this.value)
         {
         case 0:
-            this.vNumber = SystemValue.createValueCommand(command, iterator);
+            this.vNumber = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1:
-            this.vFormula = SystemValue.createValueCommand(command, iterator);
+            this.vFormula = DynamicValue.createValueCommand(command, iterator);
             break;
         case 2:
             this.vMax = true;
@@ -5307,14 +5307,14 @@ class EventCommandChangeASkill extends EventCommand
         var iterator = {
             i: 0
         }
-        this.skillID = SystemValue.createValueCommand(command, iterator);
+        this.skillID = DynamicValue.createValueCommand(command, iterator);
     
         // Selection
         this.selection = command[iterator.i++];
         switch (this.selection)
         {
         case 0:
-            this.heInstanceID = SystemValue.createValueCommand(command, iterator);
+            this.heInstanceID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1:
             this.groupIndex = command[iterator.i++];
@@ -5394,14 +5394,14 @@ class EventCommandChangeName extends EventCommand
         let iterator = {
             i: 0
         }
-        this.name = SystemValue.createValueCommand(command, iterator);
+        this.name = DynamicValue.createValueCommand(command, iterator);
 
         // Selection
         this.selection = command[iterator.i++];
         switch (this.selection)
         {
         case 0:
-            this.heInstanceID = SystemValue.createValueCommand(command, iterator);
+            this.heInstanceID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1:
             this.groupIndex = command[iterator.i++];
@@ -5469,16 +5469,16 @@ class EventCommandChangeEquipment extends EventCommand
         let iterator = {
             i: 0
         };
-        this.equipmentID = SystemValue.createValueCommand(command, iterator);
+        this.equipmentID = DynamicValue.createValueCommand(command, iterator);
         this.isWeapon = RPM.numToBool(command[iterator.i++]);
-        this.weaponArmorID = SystemValue.createValueCommand(command, iterator);
+        this.weaponArmorID = DynamicValue.createValueCommand(command, iterator);
 
         // Selection
         this.selection = command[iterator.i++];
         switch (this.selection)
         {
         case 0:
-            this.heInstanceID = SystemValue.createValueCommand(command, iterator);
+            this.heInstanceID = DynamicValue.createValueCommand(command, iterator);
             break;
         case 1:
             this.groupIndex = command[iterator.i++];
@@ -5559,9 +5559,9 @@ class EventCommandModifyCurrency extends EventCommand
         let iterator = {
             i: 0
         };
-        this.currencyID = SystemValue.createValueCommand(command, iterator);
+        this.currencyID = DynamicValue.createValueCommand(command, iterator);
         this.operation = command[iterator.i++];
-        this.value = SystemValue.createValueCommand(command, iterator);
+        this.value = DynamicValue.createValueCommand(command, iterator);
     }
 
     // -------------------------------------------------------
@@ -5603,8 +5603,8 @@ class EventCommandDisplayAnAnimation extends EventCommand
         let iterator = {
             i: 0
         };
-        this.objectID = SystemValue.createValueCommand(command, iterator);
-        this.animationID = SystemValue.createValueCommand(command, iterator);
+        this.objectID = DynamicValue.createValueCommand(command, iterator);
+        this.animationID = DynamicValue.createValueCommand(command, iterator);
         this.isWaitEnd = RPM.numToBool(command[iterator.i++]);
         this.isDirectNode = !this.isWaitEnd;
         this.parallel = !this.isWaitEnd;
@@ -5707,10 +5707,10 @@ class EventCommandShakeScreen extends EventCommand
         let iterator = {
             i: 0
         };
-        this.offset = SystemValue.createValueCommand(command, iterator);
-        this.shakeNumber = SystemValue.createValueCommand(command, iterator);
+        this.offset = DynamicValue.createValueCommand(command, iterator);
+        this.shakeNumber = DynamicValue.createValueCommand(command, iterator);
         this.isWaitEnd = RPM.numToBool(command[iterator.i++]);
-        this.time = SystemValue.createValueCommand(command, iterator);
+        this.time = DynamicValue.createValueCommand(command, iterator);
         this.isDirectNode = !this.isWaitEnd;
         this.parallel = !this.isWaitEnd;
     }
@@ -5843,9 +5843,9 @@ class EventCommandFlashScreen extends EventCommand
         let iterator = {
             i: 0
         }
-        this.colorID = SystemValue.createValueCommand(command, iterator);
+        this.colorID = DynamicValue.createValueCommand(command, iterator);
         this.isWaitEnd = RPM.numToBool(command[iterator.i++]);
-        this.time = SystemValue.createValueCommand(command, iterator);
+        this.time = DynamicValue.createValueCommand(command, iterator);
         this.isDirectNode = !this.isWaitEnd;
         this.parallel = !this.isWaitEnd;
     }

@@ -24,7 +24,7 @@
 *   @property {number} index The faces index (count)
 */
 import THREE from "three";
-import {TextureSeveral} from ".";
+import {TextureBundle} from ".";
 
 export class Autotiles
 {
@@ -56,7 +56,7 @@ export class Autotiles
         "D2": 23,
     };
 
-    texture: TextureSeveral;
+    texture: TextureBundle;
     width: number;
     height: number;
     geometry: THREE.Geometry;

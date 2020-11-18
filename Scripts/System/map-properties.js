@@ -62,23 +62,23 @@ class MapProperties
         {
             this.tileset = RPM.datasGame.tilesets.list[1];
         }
-        this.music = new SystemPlaySong(SongKind.Music, json.music);
-        this.backgroundSound = new SystemPlaySong(SongKind.BackgroundSound, json
+        this.music = new PlaySong(SongKind.Music, json.music);
+        this.backgroundSound = new PlaySong(SongKind.BackgroundSound, json
             .bgs);
         this.cameraProperties = RPM.datasGame.system.cameraProperties[
-            SystemValue.readOrDefaultDatabase(json.cp, 1).getValue()];
+            DynamicValue.readOrDefaultDatabase(json.cp, 1).getValue()];
         this.isBackgroundColor = json.isky;
         this.isBackgroundImage = json.isi;
         if (this.isBackgroundColor)
         {
-            this.backgroundColorID = new SystemValue(json.sky);
+            this.backgroundColorID = new DynamicValue(json.sky);
         } else if (this.isBackgroundImage)
         {
             this.backgroundImageID = json.ipid;
             this.updateBackgroundImage();
         } else  
         {
-            this.backgroundSkyboxID = SystemValue.readOrDefaultDatabase(json
+            this.backgroundSkyboxID = DynamicValue.readOrDefaultDatabase(json
                 .sbid);
             this.updateBackgroundSkybox();
         }

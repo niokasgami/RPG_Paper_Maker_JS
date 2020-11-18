@@ -168,13 +168,13 @@ class GraphicMessage extends Bitmap
             {
             case TagKind.Variable:
             case TagKind.HeroName:
-                value = SystemValue.createVariable(value);
+                value = DynamicValue.createVariable(value);
                 break;
             case TagKind.Parameter:
-                value = SystemValue.createParameter(value);
+                value = DynamicValue.createParameter(value);
                 break;
             case TagKind.Property:
-                value = SystemValue.createProperty(value);
+                value = DynamicValue.createProperty(value);
                 break;
             }
             currentNode.add([tag, value]);

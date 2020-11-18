@@ -354,7 +354,7 @@ SceneBattle.prototype.onCommandSelected = function(key)
             this.time = new Date().getTime();
             this.winning = true;
             RPM.escaped = true;
-            RPM.songsManager.initializeProgressionMusic(SystemPlaySong
+            RPM.songsManager.initializeProgressionMusic(PlaySong
                 .currentPlayingMusic.volume, 0, 0, SceneBattle
                 .TIME_LINEAR_MUSIC_END);
             for (i = 0, l = this.battlers[CharacterKind.Hero].length; i < l; i++) 

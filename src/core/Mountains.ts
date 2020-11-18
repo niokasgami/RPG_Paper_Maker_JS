@@ -11,21 +11,21 @@
 
 
 import THREE from "three";
-import {Mountain,TextureSeveral} from ".";
+import {Mountain,TextureBundle} from ".";
 
 /**
  * The wrapper class for handle mountains sharing the same texture.
  */
 export class Mountains
 {
-    texture: TextureSeveral;
+    texture: TextureBundle;
     width: number;
     height: number;
     geometry: THREE.Geometry;
     count: number;
     mesh: THREE.Mesh;
 
-    constructor(texture: TextureSeveral)
+    constructor(texture: TextureBundle)
     {
         this.texture = texture;
         this.width = texture.texture.map.image.width;

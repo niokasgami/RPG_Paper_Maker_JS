@@ -448,10 +448,10 @@ class MapObject
         {
             this.mesh = null;
             this.boundingBoxSettings = null;
-            this.speed = this.currentState === null ? SystemValue
+            this.speed = this.currentState === null ? DynamicValue
                 .createNumberDouble(1) : RPM.datasGame.system.speeds[this
                 .currentState.speedID];
-            this.frequency = this.currentState === null ? SystemValue
+            this.frequency = this.currentState === null ? DynamicValue
                 .createNumberDouble(0) : RPM.datasGame.system.frequencies[this
                 .currentState.frequencyID];
             this.width = 0;

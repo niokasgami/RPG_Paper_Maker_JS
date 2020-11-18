@@ -155,7 +155,7 @@
 *   @param {number} troopID Current troop ID that the allies are fighting
 *   @param {boolean} canGameOver Indicate if there is a win/lose node or not
 *   @param {boolean} canEscape Indicate if the player can escape this battle
-*   @param {SystemBattleMap} battleMap The system battle map
+*   @param {BattleMap} battleMap The system battle map
 *   @param {MapTransitionKind} transitionStart The kind of transition for 
 *   the battle start
 *   @param {MapTransitionKind} transitionEnd The kind of transition for the 

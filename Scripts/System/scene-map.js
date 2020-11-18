@@ -852,8 +852,8 @@ class SceneMap extends SceneGame
             if (!RPM.blockingHero && !this.isBattleMap)
             {
                 EventCommandSendEvent.sendEvent(null, 0, 1, true, 3, [null,
-                    SystemValue.createNumber(key), SystemValue.createSwitch(
-                    false), SystemValue.createSwitch(false)], true);
+                    DynamicValue.createNumber(key), DynamicValue.createSwitch(
+                    false), DynamicValue.createSwitch(false)], true);
             }
             super.onKeyPressed(key);
         }
@@ -871,7 +871,7 @@ class SceneMap extends SceneGame
             if (!RPM.blockingHero && !this.isBattleMap)
             {
                 EventCommandSendEvent.sendEvent(null, 0, 1, true, 4, [null,
-                    SystemValue.createNumber(key)], true);
+                    DynamicValue.createNumber(key)], true);
             }
             super.onKeyReleased(key);
         }
@@ -889,8 +889,8 @@ class SceneMap extends SceneGame
             if (!RPM.blockingHero && !this.isBattleMap)
             {
                 EventCommandSendEvent.sendEvent(null, 0, 1, true, 3, [null,
-                    SystemValue.createNumber(key), SystemValue.createSwitch(
-                    true), SystemValue.createSwitch(true)], true);
+                    DynamicValue.createNumber(key), DynamicValue.createSwitch(
+                    true), DynamicValue.createSwitch(true)], true);
             }
             return super.onKeyPressedRepeat(key);
         }
@@ -909,8 +909,8 @@ class SceneMap extends SceneGame
             if (!RPM.blockingHero && !this.isBattleMap)
             {
                 EventCommandSendEvent.sendEvent(null, 0, 1, true, 3, [null,
-                    SystemValue.createNumber(key), SystemValue.createSwitch(true
-                    ), SystemValue.createSwitch(false)], true);
+                    DynamicValue.createNumber(key), DynamicValue.createSwitch(true
+                    ), DynamicValue.createSwitch(false)], true);
             }
             super.onKeyPressedAndRepeat(key);
         }

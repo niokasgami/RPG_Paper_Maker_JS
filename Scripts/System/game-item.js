@@ -78,7 +78,7 @@ class GameItem
 
     // -------------------------------------------------------
     /** Get the item informations system
-    *   @returns {SystemCommonSkillItem}
+    *   @returns {CommonSkillItem}
     */
     getItemInformations()
     {

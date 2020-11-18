@@ -10,8 +10,9 @@
 */
 
 import * as THREE from "three";
+import {BaseSystem} from "./BaseSystem";
 
-export class Color
+export class Color extends BaseSystem
 {
     red: number;
     green:  number;
@@ -23,10 +24,7 @@ export class Color
 
     constructor(json?)
     {
-        if (json)
-        {
-            this.read(json);
-        }
+        super(json);
     }
 
     // -------------------------------------------------------
