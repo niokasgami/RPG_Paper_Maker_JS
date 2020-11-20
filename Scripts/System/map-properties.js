@@ -23,7 +23,7 @@
 *   @property {SystemTileset} tileset The system tileset map
 *   @property {SystemPlaySong} music The beginning music
 *   @property {SystemPlaySong} backgroundSound The beginning background sound
-*   @property {SystemCameraProperties} cameraProperties The system camera 
+*   @property {CameraProperties} cameraProperties The system camera
 *   properties of the map
 *   @property {boolean} isBackgroundColor Indicate if background is a color
 *   @property {boolean} isBackgroundImage Indicate if background is an image

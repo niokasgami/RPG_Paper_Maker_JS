@@ -18,7 +18,7 @@
  *   @property {DatasSongs} songs Songs datas
  *   @property {DatasVideos} videos Videos datas
  *   @property {DatasShapes} shapes Shapes datas
- *   @property {DatasCommonEvents} commonEvents Common events datas
+ *   @property {DatasCommonEvents} commonEvents Constants events datas
  *   @property {DatasSpecialElements} specialElements Special elements datas
  *   @property {DatasTilesets} tilesets Tilesets datas
  *   @property {DatasItems} items Items datas

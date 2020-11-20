@@ -2,19 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab1ea477-343a-4084-bc5a-574b2cedfeeb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Common/IO.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Common/Utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Manager/Persistence.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Manager/Save.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/Angle.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Animation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Animation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/camera.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/camera.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/System/map-properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/System/map-properties.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/Common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/Mathf.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Mathf.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/Paths.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/Paths.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Common/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Datas/Datas/datas-common-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-common-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Datas/Datas/datas-game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Datas/Datas/datas-system.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Datas/Datas/datas-system.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Management/GameStack.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/GameStack.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Management/PluginManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/PluginManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Management/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Manager/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/system/AnimationFrame.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrame.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/AnimationFrameEffect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameEffect.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/AnimationFrameElement.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/AnimationFrameElement.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Armor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Armor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/BaseSystem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/BaseSystem.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/BattleMap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/BattleMap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Characteristic.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Characteristic.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/CommonSkillItem.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/CommonSkillItem.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/DynamicValue.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/DynamicValue.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Icon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Icon.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/system/Lang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/Lang.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/PlaySong.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/PlaySong.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/system/SystemJS/system-camera-properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/system/CameraProperties.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +52,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.TypeScript" />
     <property name="ts.external.directory.path" value="C:\Users\nioPC\AppData\Roaming\npm\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\system" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\Scripts\System\SystemJS" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\Datas" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\src\Management" />
       <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS\Scripts\System\Datas" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nioPC\Documents\RPG_Paper_Maker_JS" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -100,7 +111,10 @@
       <workItem from="1605447209970" duration="6065000" />
       <workItem from="1605641074165" duration="4291000" />
       <workItem from="1605667091263" duration="3544000" />
-      <workItem from="1605700433882" duration="264000" />
+      <workItem from="1605700433882" duration="10069000" />
+      <workItem from="1605769556609" duration="3965000" />
+      <workItem from="1605826965769" duration="710000" />
+      <workItem from="1605850655420" duration="3255000" />
     </task>
     <task id="LOCAL-00001" summary="Added more classes">
       <created>1604696033635</created>
@@ -130,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605667172605</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added more classes">
+      <created>1605700906622</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605700906622</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,29 +162,37 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added more classes" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="729" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605855668870">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="729" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605855668870" />
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1605406832955">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605406832955" />
-    <state x="562" y="2" key="CommitChangelistDialog2" timestamp="1605667167574">
+    <state x="703" y="355" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1605855426254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="562" y="2" key="CommitChangelistDialog2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605667167574" />
+    <state x="703" y="355" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605855426254" />
+    <state x="562" y="2" key="CommitChangelistDialog2" timestamp="1605700899493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="562" y="2" key="CommitChangelistDialog2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605700899493" />
     <state x="461" y="164" width="1344" height="710" key="SettingsEditor" timestamp="1605700674041">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" width="1344" height="710" key="SettingsEditor/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605700674041" />
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1605667174860">
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2" timestamp="1605701199081">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605667174860" />
+    <state x="552" y="234" key="Vcs.Push.Dialog.v2/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605701199081" />
     <state x="668" y="95" width="583" height="849" key="find.popup" timestamp="1604701364203">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="668" y="95" width="583" height="849" key="find.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604701364203" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1604688466904">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605851147036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1604688466904" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/0.1080.1920.1040@0.0.1920.1040" timestamp="1605851147036" />
   </component>
 </project>

@@ -1,2 +1,2 @@
 export *  as Core from "./core";
-export * as Management from "./Management";
+export * as Management from "./Manager";

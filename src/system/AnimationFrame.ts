@@ -14,12 +14,13 @@ import {RPM} from "../core";
 
 /** @class
  *   An animation frame
- *   @property {SystemAnimationFrameElement[]} elements The frame elements by
+ *   @property {AnimationFrameElements[]} elements The frame elements by
  *   index
- *   @property {SystemAnimationFrameEffect} effects The frame effects by index
+ *   @property {AnimationFrameEffect} effects The frame effects by index
  *   @param {Object} [json=undefined] Json object describing the animation frame
  */
 export class AnimationFrame extends BaseSystem {
+
     elements: AnimationFrameElements[];
     effects: AnimationFrameEffect[];
 
@@ -60,7 +61,7 @@ export class AnimationFrame extends BaseSystem {
      *   @param {rows} rows The number of rows in the animation texture
      *   @param {number} cols The number of columns in the animation texture
      */
-    draw = function (picture, position, rows, cols) {
+    draw(picture, position, rows, cols) {
         for (let i = 0, l = this.elements.length; i < l; i++) {
             this.elements[i].draw(picture, position, rows, cols);
         }

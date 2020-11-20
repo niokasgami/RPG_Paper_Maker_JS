@@ -4,7 +4,7 @@ import {Platform} from "../core";
 /**
  * The static class containing Path related constant
  * can be accessed through import
- * @example import {Path} from "../Common";
+ * @example import {Path} from "../Constants";
  */
 export class Paths {
 

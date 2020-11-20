@@ -40,7 +40,7 @@ class DatasCommonEvents {
         this.commonReactions = RPM.readJSONSystemList(json.commonReactors,
             SystemCommonReaction);
 
-        // Common objects
+        // Constants objects
         /* First, we'll need to reorder the json list according to
         inheritance */
         let jsonObjects = json.commonObjects;

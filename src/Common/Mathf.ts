@@ -1,4 +1,4 @@
-import {Common} from ".";
+import {Constants} from ".";
 
 /**
  * The static class for Math related function
@@ -55,9 +55,9 @@ export class Mathf {
      */
     static getPortionArray(p) {
         return [
-            Math.floor(p[0] / Common.PORTION_SIZE),
-            Math.floor(p[1] / Common.PORTION_SIZE),
-            Math.floor(p[2] / Common.PORTION_SIZE)
+            Math.floor(p[0] / Constants.PORTION_SIZE),
+            Math.floor(p[1] / Constants.PORTION_SIZE),
+            Math.floor(p[2] / Constants.PORTION_SIZE)
         ];
     }
 
@@ -68,9 +68,9 @@ export class Mathf {
      */
     static getPosition(position) {
         return [
-            Math.floor(position.x / Common.SQUARE_SIZE),
-            Math.floor(position.y / Common.SQUARE_SIZE),
-            Math.floor(position.z / Common.SQUARE_SIZE)
+            Math.floor(position.x / Constants.SQUARE_SIZE),
+            Math.floor(position.y / Constants.SQUARE_SIZE),
+            Math.floor(position.z / Constants.SQUARE_SIZE)
         ];
     }
 
@@ -113,8 +113,20 @@ export class Mathf {
      * @param {number} value
      * @param {number} min
      * @param {number} max
+     * @author Nio Kasgami
      */
     static clamp(value: number, min: number, max: number): number {
         return value <= min ? min : value >= max ? max : value;
+    }
+
+    /** Get random value according to value and variance
+     *   @static
+     *   @param {number} value
+     *   @param {number} variance
+     *   @returns {number}
+     */
+    static variance(value, variance) {
+        let v = Math.round(value * variance / 100);
+        return this.random(value - v, value + v);
     }
 }

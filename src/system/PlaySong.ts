@@ -9,7 +9,9 @@
         http://rpg-paper-maker.com/index.php/eula.
 */
 
-import {BaseSystem} from ".";
+import {BaseSystem, DynamicValue} from ".";
+import {Enum, RPM} from "../core";
+import SongKind = Enum.SongKind;
 
 /** @class
  *   A way to play a song
@@ -32,10 +34,20 @@ class PlaySong extends BaseSystem {
     static currentPlayingMusic: number = null;
 
     kind: number;
+    songID: DynamicValue;
+    volume: DynamicValue;
+    isStart: boolean;
+    start: DynamicValue;
+    isEnd: boolean;
+    end: DynamicValue;
 
     constructor(kind, json) {
         super(json);
         this.kind = kind;
+    }
+
+    setup(){
+
     }
 
     // -------------------------------------------------------
@@ -47,14 +59,14 @@ class PlaySong extends BaseSystem {
             this.setDefault();
             return;
         }
-        this.songID = json.isbi ? new SystemValue(json.vid) : DynamicValue
+        this.songID = json.isbi ? new DynamicValue(json.vid) : DynamicValue
             .createNumber(json.id);
-        this.volume = new SystemValue(json.v);
+        this.volume = new DynamicValue(json.v);
         this.isStart = json.is;
-        this.start = this.isStart ? new SystemValue(json.s) : DynamicValue
+        this.start = this.isStart ? new DynamicValue(json.s) : DynamicValue
             .createNumber(0);
         this.isEnd = json.ie;
-        this.end = this.isEnd ? new SystemValue(json.e) : DynamicValue
+        this.end = this.isEnd ? new DynamicValue(json.e) : DynamicValue
             .createNumber(0);
     }
 

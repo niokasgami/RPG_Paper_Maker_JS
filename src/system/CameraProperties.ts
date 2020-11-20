@@ -9,6 +9,9 @@
         http://rpg-paper-maker.com/index.php/eula.
 */
 
+import {BaseSystem} from "./BaseSystem";
+import {DynamicValue} from ".";
+
 /** @class
  *   A camera properties of the game
  *   @property {number} distance The distance between the target position and
@@ -32,11 +35,34 @@
  *   @param {Object} [json=undefined] Json object describing the camera
  *   properties
  */
-class SystemCameraProperties {
+export class CameraProperties extends BaseSystem {
+
+    // TODO : convert those values to Vector3?
+    // TODO : create an Angle.ts class?
+    distance: number;
+    horizontalAngle: number;
+    verticalAngle: number;
+    targetOffsetX: number;
+    targetOffsetY: number;
+    targetOffsetZ: number;
+    isSquareTargetOffsetX: boolean;
+    isSquareTargetOffsetY: boolean;
+    fov: number;
+    near: number;
+    far: number;
+
+    // TODO :  targetOffset: Vector3;
     constructor(json) {
-        if (json) {
-            this.read(json);
-        }
+        super(json);
+    }
+
+    public setup() {
+        this.distance = 0;
+        this.horizontalAngle = 0;
+        this.verticalAngle = 0;
+        this.targetOffsetX = 0;
+        this.targetOffsetY = 0;
+        this.targetOffsetZ = 0;
     }
 
     // -------------------------------------------------------

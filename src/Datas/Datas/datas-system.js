@@ -27,7 +27,7 @@
  *   @property {SystemColor[]} colors List of all the colors by ID
  *   @property {SystemCurrency[]} currencies List of all the currencies by ID
  *   @property {SystemWindowSkin[]} windowSkins List of all the windowSkins by ID
- *   @property {SystemCameraProperties[]} cameraProperties List of all the
+ *   @property {CameraProperties[]} cameraProperties List of all the
  *   camera properties by ID
  *   @property {SystemDetection[]} detections List of all the detections by ID
  *   @property {SystemSkybox[]} skyboxes List of all the skyboxes by ID
@@ -114,7 +114,7 @@ class DatasSystem {
         this.currencies = RPM.readJSONSystemList(json.currencies, SystemCurrency);
         this.windowSkins = RPM.readJSONSystemList(json.wskins, SystemWindowSkin);
         this.cameraProperties = RPM.readJSONSystemList(json.cp,
-            SystemCameraProperties);
+            CameraProperties);
         this.detections = RPM.readJSONSystemList(json.d, SystemDetection);
         this.skyboxes = RPM.readJSONSystemList(json.sb, SystemSkybox);
         this.fontSizes = RPM.readJSONSystemList(json.fs, (element) => {

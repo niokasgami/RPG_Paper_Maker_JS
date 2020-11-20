@@ -1,7 +1,7 @@
 /**
  * The common class for constant and static function
  */
-export class Common {
+export class Constants {
 
     static SMALL_FONT_SIZE = 8;
     static MEDIUM_FONT_SIZE = 10;
@@ -70,13 +70,5 @@ export class Common {
 
     constructor() {
         throw new Error("This is a static class!");
-    }
-
-    public static defaultValue<T>(value: any, defaultValue: any): T {
-        return this.isUndefined(value) ? defaultValue : value;
-    }
-
-    public static isUndefined(value: any): boolean {
-        return typeof value === this.UNDEFINED;
     }
 }
