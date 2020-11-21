@@ -13,6 +13,8 @@ import {Enum, RPM} from "../core";
 import PrimitiveValueKind = Enum.PrimitiveValueKind;
 import {BaseSystem} from ".";
 
+
+// TODO : This class actually impose a lots of typing error I Have to mention that to Wano so the typing get simplified.
 /** @class
  *   A value in the system
  *   @property {number} kind The kind of value

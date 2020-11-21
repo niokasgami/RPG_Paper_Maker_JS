@@ -11,6 +11,7 @@
 
 import {BaseSystem} from "./BaseSystem";
 import {DynamicValue} from ".";
+import {RPM} from "../core";
 
 /** @class
  *   A camera properties of the game
@@ -39,17 +40,18 @@ export class CameraProperties extends BaseSystem {
 
     // TODO : convert those values to Vector3?
     // TODO : create an Angle.ts class?
-    distance: number;
-    horizontalAngle: number;
-    verticalAngle: number;
-    targetOffsetX: number;
-    targetOffsetY: number;
-    targetOffsetZ: number;
+    distance: DynamicValue;
+    horizontalAngle: DynamicValue;
+    verticalAngle: DynamicValue;
+    targetOffsetX: DynamicValue;
+    targetOffsetY: DynamicValue;
+    targetOffsetZ: DynamicValue;
     isSquareTargetOffsetX: boolean;
     isSquareTargetOffsetY: boolean;
-    fov: number;
-    near: number;
-    far: number;
+    isSquareTargetOffsetZ: boolean;
+    fov: DynamicValue;
+    near: DynamicValue;
+    far: DynamicValue;
 
     // TODO :  targetOffset: Vector3;
     constructor(json) {
